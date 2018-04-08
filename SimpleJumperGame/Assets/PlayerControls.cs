@@ -6,7 +6,7 @@ public class PlayerControls : MonoBehaviour {
 
     Rigidbody myBody;
     public Vector3 myForward;
-    public int jumpforce = 20;
+    public int jumpforce = 10;
 
     public int score;
 
