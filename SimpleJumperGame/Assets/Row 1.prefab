@@ -223,7 +223,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: bc46e3899a8d55742a5a73df058fb3e8, type: 2}
+  - {fileID: 2100000, guid: 07a97610a1a045647adae33d045469fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -257,7 +257,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f52d7d1d69c201848ab1699134bee166, type: 2}
+  - {fileID: 2100000, guid: ae3dd356b62d84346a30c9bb6e95f8dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -291,7 +291,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3c6ddec23f46cec40b90a1eddc015d4a, type: 2}
+  - {fileID: 2100000, guid: fba7bc5d4530a824e9f1d72278ca9d67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -325,7 +325,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: f52d7d1d69c201848ab1699134bee166, type: 2}
+  - {fileID: 2100000, guid: ae3dd356b62d84346a30c9bb6e95f8dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -359,7 +359,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: bc46e3899a8d55742a5a73df058fb3e8, type: 2}
+  - {fileID: 2100000, guid: 07a97610a1a045647adae33d045469fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -542,13 +542,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1969082635761146}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086cd49940b19994e93e98291a06b4d2, type: 3}
+  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   scoreToAdd: 1
-  movespeed: 20
-  resetPos: -18
+  movespeed: 10
+  resetPos: -20
   direction: 0
 --- !u!114 &114286982835162454
 MonoBehaviour:
@@ -558,13 +558,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1574869912950406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086cd49940b19994e93e98291a06b4d2, type: 3}
+  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   scoreToAdd: 1
-  movespeed: 20
-  resetPos: -18
+  movespeed: 10
+  resetPos: -20
   direction: 0
 --- !u!114 &114593040363419874
 MonoBehaviour:
@@ -574,13 +574,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1381235607727672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086cd49940b19994e93e98291a06b4d2, type: 3}
+  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   scoreToAdd: 1
-  movespeed: 20
-  resetPos: -18
+  movespeed: 10
+  resetPos: -20
   direction: 0
 --- !u!114 &114678055232021094
 MonoBehaviour:
@@ -590,13 +590,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1183300734826514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086cd49940b19994e93e98291a06b4d2, type: 3}
+  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   scoreToAdd: 1
-  movespeed: 20
-  resetPos: -18
+  movespeed: 10
+  resetPos: -20
   direction: 0
 --- !u!114 &114815192088701414
 MonoBehaviour:
@@ -606,11 +606,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1047891602240558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 086cd49940b19994e93e98291a06b4d2, type: 3}
+  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   scoreToAdd: 1
-  movespeed: 20
-  resetPos: -18
+  movespeed: 10
+  resetPos: -20
   direction: 0
