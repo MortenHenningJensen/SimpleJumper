@@ -64,7 +64,7 @@ public class Platform : MonoBehaviour
         if (other.GetComponent<PlayerControls>() && !hitByPlayer)
         {
             hitByPlayer = true;
-            //  player.score += scoreToAdd;
+            player.score += scoreToAdd;
         }
     }
 }

@@ -31,6 +31,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1074431861949160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4337163466099172}
+  m_Layer: 0
+  m_Name: JumpDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1152207257147166
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,9 +124,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4035808163979930}
   m_Layer: 0
-  m_Name: JumpDestination
+  m_Name: SuperJumpDestination
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -168,12 +183,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1792735551455560}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.65, y: -0.18, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9, y: 0.41299996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4255769608643052}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4255769608643052
 Transform:
@@ -191,6 +206,7 @@ Transform:
   - {fileID: 4282180928221388}
   - {fileID: 4889377718188722}
   - {fileID: 4267390182262864}
+  - {fileID: 4337163466099172}
   - {fileID: 4035808163979930}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -233,6 +249,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4255769608643052}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4337163466099172
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1074431861949160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.511, y: 0.413, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4255769608643052}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4889377718188722
 Transform:
@@ -587,10 +616,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c092ed2812d8ad240b0fb5a2d900438d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpDestination: {fileID: 1792735551455560}
+  jumpDestination: {fileID: 1074431861949160}
+  superJumpDestination: {fileID: 1792735551455560}
+  jumpEase: 1
   myForward: {x: 0, y: 0, z: 0}
   jumpforce: 10
   score: 0
+  bodyobjects:
+  - {fileID: 1031913133729382}
+  - {fileID: 1797033016468536}
+  - {fileID: 1664458503451350}
+  - {fileID: 1889955502229054}
+  - {fileID: 1236942321643208}
+  - {fileID: 1152207257147166}
+  bodypart: 0
 --- !u!124 &124597810703645318
 Behaviour:
   m_ObjectHideFlags: 1
