@@ -15,14 +15,18 @@ public class Platform : MonoBehaviour
     int minZvalue = -20;
     int maxZvalue = 20;
 
-    public int movespeed = 20;
+    public int movespeed;
 
-    public int resetPos = -20;
+    public int resetPos;
 
     public bool direction;
 
     public void Start()
     {
+        //if (Random.Range(0, 100) > 50)
+        //{
+        //    movespeed = movespeed * -1;
+        //}
 
     }
 

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class PlayerControls : MonoBehaviour {
+public class PlayerControls : MonoBehaviour
+{
 
     [SerializeField]
     private GameObject jumpDestination;
@@ -21,25 +22,35 @@ public class PlayerControls : MonoBehaviour {
     public int jumpforce = 10;
 
     public int score;
+    public int jumpCounter;
 
     [SerializeField]
     GameObject[] bodyobjects;
     public int bodypart;
 
-	// Use this for initialization
-	void Start () {
+    public Transform rowObject;
+    Quaternion test;
+    public Vector3 firstSpawn;
+
+
+    // Use this for initialization
+    void Start()
+    {
         this.startPos = this.transform.position;
         myBody = GetComponent<Rigidbody>();
         myForward = new Vector3(-1, 0, 0);
         score = 0;
+        jumpCounter = 0;
+        firstSpawn = new Vector3(28, 0, 0);
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && !this.isJumping)
         {
             //myBody.AddForce((myForward * jumpforce) + new Vector3(0, 8, 0), ForceMode.Impulse);
-            this.transform.DOJump(this.jumpDestination.transform.position, 5, 0, 1f).SetEase(this.jumpEase).OnStart(()=> this.isJumping = true).OnComplete(()=> this.isJumping = false);
+            this.transform.DOJump(this.jumpDestination.transform.position, 5, 0, 1f).SetEase(this.jumpEase).OnStart(OnJump).OnComplete(() => this.isJumping = false);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && !this.isJumping)
@@ -53,6 +64,22 @@ public class PlayerControls : MonoBehaviour {
         }
 
 
+    }
+
+    public void OnJump()
+    {
+        this.isJumping = true;
+        this.jumpCounter++;
+        SpawnNew();
+    }
+
+
+    public void SpawnNew()
+    {
+        float spawnLocation = firstSpawn.x;
+        float nextspot = spawnLocation + (7 * jumpCounter);
+
+        Instantiate(rowObject, new Vector3(nextspot, 0, 0), test);
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -90,8 +117,8 @@ public class PlayerControls : MonoBehaviour {
     {
         if (collision.gameObject.tag == "MovingPlatform")
         {
+            StartCoroutine(collision.transform.parent.GetComponent<Row>().DestrySelf());
             transform.parent = null;
-            //transform.Rotate(new Vector3(0, -1.2f, 0));
         }
 
     }
