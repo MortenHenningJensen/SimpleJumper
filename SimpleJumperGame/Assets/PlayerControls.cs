@@ -117,7 +117,8 @@ public class PlayerControls : MonoBehaviour
     {
         if (collision.gameObject.tag == "MovingPlatform")
         {
-            StartCoroutine(collision.transform.parent.GetComponent<Row>().DestrySelf());
+            collision.transform.parent.GetComponent<Row>().startDestroySelf();
+         //   StartCoroutine(collision.transform.parent.GetComponent<Row>().DestrySelf());
             transform.parent = null;
         }
 
