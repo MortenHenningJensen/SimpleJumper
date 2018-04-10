@@ -22,6 +22,11 @@ public class Row : MonoBehaviour {
 		
 	}
 
+    public void startDestroySelf()
+    {
+        StartCoroutine(DestrySelf());
+    }
+
     public IEnumerator DestrySelf()
     {
         yield return new WaitForSeconds(5);
