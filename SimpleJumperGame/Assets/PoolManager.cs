@@ -64,4 +64,9 @@ public class PoolManager : MonoBehaviour {
         return objectToSpawn;
     }
 
+    public void DespawnObject(GameObject gameObject)
+    {
+        gameObject.SetActive(false);
+    }
+
 }
