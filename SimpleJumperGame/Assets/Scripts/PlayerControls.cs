@@ -28,7 +28,7 @@ public class PlayerControls : MonoBehaviour
     GameObject[] bodyobjects;
     public int bodypart;
 
-    public Transform rowObject;
+    public GameObject rowObject;
     Quaternion test;
     public Vector3 firstSpawn;
 
@@ -79,7 +79,7 @@ public class PlayerControls : MonoBehaviour
         float spawnLocation = firstSpawn.x;
         float nextspot = spawnLocation + (7 * jumpCounter);
 
-        Instantiate(rowObject, new Vector3(nextspot, 0, 0), test);
+        GameObject newRow = Instantiate(rowObject, new Vector3(nextspot, 0, 0), test);
     }
 
     public void OnCollisionEnter(Collision collision)

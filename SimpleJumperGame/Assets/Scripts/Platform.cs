@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-
-    [SerializeField]
-    private PlayerControls player;
     [SerializeField]
     private int scoreToAdd = 1;
 
@@ -68,7 +65,7 @@ public class Platform : MonoBehaviour
         if (other.GetComponent<PlayerControls>() && !hitByPlayer)
         {
             hitByPlayer = true;
-            player.score += scoreToAdd;
+            other.GetComponent<PlayerControls>().score += scoreToAdd;
         }
     }
 }
