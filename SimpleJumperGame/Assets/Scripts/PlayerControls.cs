@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -18,8 +19,6 @@ public class PlayerControls : MonoBehaviour
 
     private bool isJumping;
     Rigidbody myBody;
-    public Vector3 myForward;
-    public int jumpforce = 10;
 
     public int score;
     public int jumpCounter;
@@ -28,20 +27,20 @@ public class PlayerControls : MonoBehaviour
     GameObject[] bodyobjects;
     public int bodypart;
 
-    public GameObject rowObject;
-    Quaternion test;
     public Vector3 firstSpawn;
 
+    PoolManager objectPool;
 
     // Use this for initialization
     void Start()
     {
         this.startPos = this.transform.position;
         myBody = GetComponent<Rigidbody>();
-        myForward = new Vector3(-1, 0, 0);
         score = 0;
         jumpCounter = 0;
         firstSpawn = new Vector3(28, 0, 0);
+        objectPool = PoolManager.Instance;
+
     }
 
     // Update is called once per frame
@@ -49,8 +48,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !this.isJumping)
         {
-            //myBody.AddForce((myForward * jumpforce) + new Vector3(0, 8, 0), ForceMode.Impulse);
-            this.transform.DOJump(this.jumpDestination.transform.position, 5, 0, 1f).SetEase(this.jumpEase).OnStart(OnJump).OnComplete(() => this.isJumping = false);
+            this.transform.DOJump(this.jumpDestination.transform.position, 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(OnJump).OnComplete(() => this.isJumping = false);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && !this.isJumping)
@@ -60,9 +58,9 @@ public class PlayerControls : MonoBehaviour
 
         if (this.transform.position.y <= -5)
         {
+           // SceneManager.LoadScene(0);
             ResetPlayer();
         }
-
 
     }
 
@@ -79,7 +77,8 @@ public class PlayerControls : MonoBehaviour
         float spawnLocation = firstSpawn.x;
         float nextspot = spawnLocation + (7 * jumpCounter);
 
-        GameObject newRow = Instantiate(rowObject, new Vector3(nextspot, 0, 0), test);
+        objectPool.SpawnObject("Cube", new Vector3(nextspot, 0, 0), Quaternion.identity);
+
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -87,10 +86,7 @@ public class PlayerControls : MonoBehaviour
 
         if (collision.transform.tag == "MovingPlatform")
         {
-            //while (bodyobjects[bodypart].GetComponent<Renderer>().material != collision.transform.GetComponent<Renderer>().material)
-            //{
-            //    bodypart = Random.Range(0, bodyobjects.Length + 1);
-            //}
+
             bodypart = Random.Range(0, 5);
 
             bodyobjects[bodypart].GetComponent<Renderer>().material = collision.transform.GetComponent<Renderer>().material;
@@ -103,7 +99,6 @@ public class PlayerControls : MonoBehaviour
         {
             transform.parent = collision.transform;
 
-            //transform.Rotate(new Vector3(0, -1.2f, 0));
         }
         else
         {
@@ -111,17 +106,6 @@ public class PlayerControls : MonoBehaviour
 
             transform.parent = null;
         }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "MovingPlatform")
-        {
-            collision.transform.parent.GetComponent<Row>().startDestroySelf();
-         //   StartCoroutine(collision.transform.parent.GetComponent<Row>().DestrySelf());
-            transform.parent = null;
-        }
-
     }
 
     private void ResetPlayer()

@@ -20,26 +20,12 @@ public class Platform : MonoBehaviour
 
     public void Start()
     {
-        //if (Random.Range(0, 100) > 50)
-        //{
-        //    movespeed = movespeed * -1;
-        //}
 
     }
 
     public void Update()
     {
         gameObject.transform.Translate(new Vector3(0, 0, movespeed) * Time.deltaTime);
-
-        if (movespeed < 0)
-        {
-            direction = false;
-        }
-        else
-        {
-            direction = true;
-        }
-
 
         if (direction)
         {
