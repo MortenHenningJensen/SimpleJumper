@@ -446,6 +446,12 @@ MonoBehaviour:
   - tag: Cube
     prefab: {fileID: 1037383883120158, guid: fa4e6ad77d9439148bcfd058fbf74fd8, type: 2}
     size: 15
+  - tag: Turtle
+    prefab: {fileID: 1701652059437430, guid: 87fd3865bc7e8f0498289ba8fe6d68f3, type: 2}
+    size: 15
+  - tag: Raft
+    prefab: {fileID: 1329215789375124, guid: 8a1cad94169c7ba4980c3e1b5c459a9a, type: 2}
+    size: 15
 --- !u!4 &444970278
 Transform:
   m_ObjectHideFlags: 0

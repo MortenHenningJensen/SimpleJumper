@@ -58,7 +58,7 @@ public class PlayerControls : MonoBehaviour
 
         if (this.transform.position.y <= -5)
         {
-           // SceneManager.LoadScene(0);
+            // SceneManager.LoadScene(0);
             ResetPlayer();
         }
 
@@ -80,8 +80,19 @@ public class PlayerControls : MonoBehaviour
         //Run random here to what "Row" to spawn here, so it can spawn an empty row that stands still fx
         //or a row with only 1 thing, or with different movement options
 
-        objectPool.SpawnObject("Cube", new Vector3(nextspot, 0, 0), Quaternion.identity);
 
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                objectPool.SpawnObject("Raft", new Vector3(nextspot, 0, 0), Quaternion.identity);
+                break;
+            case 1:
+                objectPool.SpawnObject("Turtle", new Vector3(nextspot, 0, 0), Quaternion.identity);
+                break;
+            case 2:
+                objectPool.SpawnObject("Cube", new Vector3(nextspot, 0, 0), Quaternion.identity);
+                break;
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
