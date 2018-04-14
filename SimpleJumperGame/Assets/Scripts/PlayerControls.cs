@@ -77,6 +77,9 @@ public class PlayerControls : MonoBehaviour
         float spawnLocation = firstSpawn.x;
         float nextspot = spawnLocation + (7 * jumpCounter);
 
+        //Run random here to what "Row" to spawn here, so it can spawn an empty row that stands still fx
+        //or a row with only 1 thing, or with different movement options
+
         objectPool.SpawnObject("Cube", new Vector3(nextspot, 0, 0), Quaternion.identity);
 
     }
@@ -87,9 +90,9 @@ public class PlayerControls : MonoBehaviour
         if (collision.transform.tag == "MovingPlatform")
         {
 
-            bodypart = Random.Range(0, 5);
+            //bodypart = Random.Range(0, 5);
 
-            bodyobjects[bodypart].GetComponent<Renderer>().material = collision.transform.GetComponent<Renderer>().material;
+            //bodyobjects[bodypart].GetComponent<Renderer>().material = collision.transform.GetComponent<Renderer>().material;
         }
     }
 

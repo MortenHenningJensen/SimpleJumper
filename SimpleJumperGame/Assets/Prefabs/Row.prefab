@@ -546,7 +546,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   scoreToAdd: 1
   movespeed: -5
   resetPos: 20
@@ -562,7 +561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   scoreToAdd: 1
   movespeed: -5
   resetPos: 20
@@ -578,7 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babff9aae0dd8d048905253fb6bd2511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowObject: {fileID: 4329454638594748}
+  myChildren: []
 --- !u!114 &114346569139715732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -590,7 +588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   scoreToAdd: 1
   movespeed: -5
   resetPos: 20
@@ -606,7 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   scoreToAdd: 1
   movespeed: -5
   resetPos: 20
@@ -622,7 +618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   scoreToAdd: 1
   movespeed: -5
   resetPos: 20

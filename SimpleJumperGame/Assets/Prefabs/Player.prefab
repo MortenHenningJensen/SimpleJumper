@@ -619,9 +619,8 @@ MonoBehaviour:
   jumpDestination: {fileID: 1074431861949160}
   superJumpDestination: {fileID: 1792735551455560}
   jumpEase: 1
-  myForward: {x: 0, y: 0, z: 0}
-  jumpforce: 10
   score: 0
+  jumpCounter: 0
   bodyobjects:
   - {fileID: 1031913133729382}
   - {fileID: 1797033016468536}
@@ -630,6 +629,7 @@ MonoBehaviour:
   - {fileID: 1236942321643208}
   - {fileID: 1152207257147166}
   bodypart: 0
+  firstSpawn: {x: 0, y: 0, z: 0}
 --- !u!124 &124597810703645318
 Behaviour:
   m_ObjectHideFlags: 1
