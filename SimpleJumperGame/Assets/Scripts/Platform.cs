@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+enum PlatformType { Normal, Rotate, Timed, UpDown}
+
 public class Platform : MonoBehaviour
 {
     [SerializeField]
@@ -12,11 +14,20 @@ public class Platform : MonoBehaviour
     int minZvalue = -20;
     int maxZvalue = 20;
 
+    int minYvalue = -5;
+    int maxYvalue = 5;
+
     public int movespeed;
 
     public int resetPos;
 
     public bool direction;
+    bool sinking;
+    bool updown;
+
+    [SerializeField]
+    PlatformType mytype;
+
 
     public void Start()
     {
@@ -25,7 +36,42 @@ public class Platform : MonoBehaviour
 
     public void Update()
     {
-        gameObject.transform.Translate(new Vector3(0, 0, movespeed) * Time.deltaTime);
+        if (mytype == PlatformType.Timed)
+        {
+            if (sinking)
+            {
+                gameObject.transform.Translate(new Vector3(0, -2, movespeed) * Time.deltaTime);
+
+            }
+            else
+            {
+                gameObject.transform.Translate(new Vector3(0, 0, movespeed) * Time.deltaTime);
+            }
+
+        }
+        else if(mytype == PlatformType.UpDown)
+        {
+            if (!updown)
+            {
+                gameObject.transform.Translate(new Vector3(0, -1, movespeed) * Time.deltaTime);
+            }
+            else
+            {
+                gameObject.transform.Translate(new Vector3(0, 1, movespeed) * Time.deltaTime);
+            }
+
+        }
+        else
+        {
+            gameObject.transform.Translate(new Vector3(0, 0, movespeed) * Time.deltaTime);
+
+        }
+
+        //Virker ikke, kan ikke få den til at rotate og bevæge sig på samme tid
+        //if (mytype == PlatformType.Rotate)
+        //{
+        //    gameObject.transform.localRotation = new Quaternion(0, 1, 0, 0);
+        //}
 
         if (direction)
         {
@@ -44,6 +90,22 @@ public class Platform : MonoBehaviour
 
         }
 
+        if (updown)
+        {
+            if (gameObject.transform.position.y >= 3)
+            {
+                updown = false;
+            }
+        }
+        else
+        {
+            if (gameObject.transform.position.y <= -3)
+            {
+                updown = true;
+            }
+
+        }
+
     }
 
     public void OnTriggerEnter(Collider other)
@@ -52,6 +114,20 @@ public class Platform : MonoBehaviour
         {
             hitByPlayer = true;
             other.GetComponent<PlayerControls>().score += scoreToAdd;
+
+            if (mytype == PlatformType.Timed)
+            {
+                StartCoroutine(Disappear());
+            }
+
         }
+    }
+
+    public IEnumerator Disappear()
+    {
+        yield return new WaitForSeconds(2);
+        //Play animation for animal to disappear
+        sinking = true;
+        //gameObject.transform.position = new Vector3(transform.position.x, -10, transform.position.z);
     }
 }

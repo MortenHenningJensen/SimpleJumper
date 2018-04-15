@@ -410,6 +410,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114086638233717584, guid: fa4e6ad77d9439148bcfd058fbf74fd8,
+        type: 2}
+      propertyPath: mytype
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114931195845953634, guid: fa4e6ad77d9439148bcfd058fbf74fd8,
+        type: 2}
+      propertyPath: mytype
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114299409173813338, guid: fa4e6ad77d9439148bcfd058fbf74fd8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fa4e6ad77d9439148bcfd058fbf74fd8, type: 2}
@@ -642,6 +652,11 @@ Prefab:
     - target: {fileID: 1037383883120158, guid: fa4e6ad77d9439148bcfd058fbf74fd8, type: 2}
       propertyPath: m_Name
       value: Row (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114778276474726840, guid: fa4e6ad77d9439148bcfd058fbf74fd8,
+        type: 2}
+      propertyPath: mytype
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114299409173813338, guid: fa4e6ad77d9439148bcfd058fbf74fd8, type: 2}
@@ -1792,3 +1807,4 @@ MonoBehaviour:
   movespeed: 0
   resetPos: 0
   direction: 0
+  mytype: 0
