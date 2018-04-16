@@ -1549,6 +1549,7 @@ MonoBehaviour:
   - {fileID: 855358108}
   bodypart: 0
   firstSpawn: {x: 0, y: 0, z: 0}
+  leftRight: 0
 --- !u!65 &1810549378
 BoxCollider:
   m_ObjectHideFlags: 0

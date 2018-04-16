@@ -15,117 +15,81 @@ public class Row : MonoBehaviour
     float newSizeZ;
 
     float difficulty;
-    float difficultyFactor;
+    Vector3 myScale;
 
     // Use this for initialization
     void Start()
     {
-
+        //adds all children to a list, so we can modify them
         foreach (Transform child in transform)
         {
             myChildren.Add(child);
         }
 
+        //a factor which we can multiply by, to make the game progressevely harder
         difficulty = (GameObject.Find("JumpChar").GetComponent<PlayerControls>().jumpCounter + 1) / 100f;
 
-        difficultyFactor = 5f;
-        //Change these if conditions to make the game progressevely harder
-        #region Diffuculty
-        if (difficulty >= 0.1f)
-        {
-            difficultyFactor = 5f;
-        }
-        else if (difficulty >= 0.3f)
-        {
-            difficultyFactor = 4.8f;
-        }
-        else if (difficulty >= 0.4f)
-        {
-            difficultyFactor = 4.5f;
-        }
-        else if (difficulty >= 0.5f)
-        {
-            difficultyFactor = 4.2f;
-        }
-        else if (difficulty >= 0.6f)
-        {
-            difficultyFactor = 4.0f;
-        }
-        else if (difficulty >= 0.7f)
-        {
-            difficultyFactor = 3.8f;
-        }
-        else if (difficulty >= 0.8f)
-        {
-            difficultyFactor = 3.5f;
-        }
-        else if (difficulty >= 0.9f)
-        {
-            difficultyFactor = 3.2f;
-        }
-        else if (difficulty >= 1f)
-        {
-            difficultyFactor = 3.0f;
-        }
-        else if (difficulty >= 1.1f)
-        {
-            difficultyFactor = 2.8f;
-        }
-        else if (difficulty >= 1.2f)
-        {
-            difficultyFactor = 2.5f;
-        }
-#endregion
+        //Used to decide the scale of the item
+        myScale = myChildren[0].localScale;
+        myScale.x -= (GameObject.Find("JumpChar").GetComponent<PlayerControls>().jumpCounter / 50);
+        myScale.z -= (GameObject.Find("JumpChar").GetComponent<PlayerControls>().jumpCounter / 50);
 
-        newMovespeed = Random.Range(-10 * (difficulty + 1), 10 * difficulty);
-        if (newMovespeed == 0)
+        //Checks the direction of the last row we made, and makes the new one run the other way
+        if (GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight)
         {
-            newMovespeed = 2;
+            newMovespeed = Random.Range(5, 10 * difficulty);
+            GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight = false;
+        }
+        else
+        {
+            newMovespeed = Random.Range(-10 * (difficulty + 1), -5);
+            GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight = true;
         }
 
+        //Safety, dosent really work, might be the way the random value us calculated above
+        if(newMovespeed == 0)
+        {
+            if (GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight)
+            {
+                newMovespeed = -2;
+            }
+            else
+                newMovespeed = 2;
+        }
+        // newMovespeed = Random.Range(-10 * (difficulty + 1), 10 * difficulty);
+
+        //Gets the current size of the items
         platformsizeZ = myChildren[0].localScale.z;
         platformsizeX = myChildren[0].localScale.x;
 
         foreach (var item in myChildren)
         {
-            newSizeX = Random.Range(difficultyFactor, platformsizeX);
-            newSizeZ = Random.Range(difficultyFactor, platformsizeZ);
+            //Sets a new random size for the next object, the further you get, the smaller it can be from its original state
+            newSizeX = Random.Range(myScale.x, platformsizeX);
+            newSizeZ = Random.Range(myScale.z, platformsizeZ);
 
+            //decides stuff for each of the rows, as how to scale, and how to move and behave
             if (newMovespeed < 0)
             {
                 item.GetComponent<Platform>().direction = false;
                 item.GetComponent<Platform>().resetPos = 20;
-                item.localScale = new Vector3(newSizeZ, 2, newSizeZ);
+                item.localScale = new Vector3(newSizeX, 2, newSizeZ);
             }
             else
             {
                 item.GetComponent<Platform>().direction = true;
                 item.GetComponent<Platform>().resetPos = -20;
-                item.localScale = new Vector3(newSizeZ, 2, newSizeZ);
+                item.localScale = new Vector3(newSizeX, 2, newSizeZ);
             }
 
+            //sets the movespeed of the platform
             item.GetComponent<Platform>().movespeed = (int)newMovespeed;
         }
-
     }
 
     // Update is called once per frame
     void Update()
-    { 
-
-    }
-
-    private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
-            StartCoroutine(DestrySelf());
-        }
-    }
 
-    public IEnumerator DestrySelf()
-    {
-        yield return new WaitForSeconds(5);
-        PoolManager.Instance.DespawnObject(this.gameObject);
     }
 }

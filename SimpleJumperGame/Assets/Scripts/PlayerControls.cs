@@ -31,6 +31,8 @@ public class PlayerControls : MonoBehaviour
 
     PoolManager objectPool;
 
+    public bool leftRight;
+
     // Use this for initialization
     void Start()
     {
@@ -40,7 +42,7 @@ public class PlayerControls : MonoBehaviour
         jumpCounter = 0;
         firstSpawn = new Vector3(28, 0, 0);
         objectPool = PoolManager.Instance;
-
+        leftRight = false;
     }
 
     // Update is called once per frame
@@ -77,33 +79,31 @@ public class PlayerControls : MonoBehaviour
         float spawnLocation = firstSpawn.x;
         float nextspot = spawnLocation + (7 * jumpCounter);
 
-        //Run random here to what "Row" to spawn here, so it can spawn an empty row that stands still fx
-        //or a row with only 1 thing, or with different movement options
+        //makes a random number, and the if statements below decides which row to spawn
+        int rnd = Random.Range(0, 101);
 
-
-        switch (Random.Range(0, 3))
+        if (rnd < 10)
         {
-            case 0:
-                objectPool.SpawnObject("Raft", new Vector3(nextspot, 0, 0), Quaternion.identity);
-                break;
-            case 1:
-                objectPool.SpawnObject("Turtle", new Vector3(nextspot, 0, 0), Quaternion.identity);
-                break;
-            case 2:
-                objectPool.SpawnObject("Cube", new Vector3(nextspot, 0, 0), Quaternion.identity);
-                break;
+            objectPool.SpawnObject("Turtle", new Vector3(nextspot, 0, 0), Quaternion.identity);
+
+        }
+        else if (rnd > 10 && rnd < 55)
+        {
+            objectPool.SpawnObject("Raft", new Vector3(nextspot, 0, 0), Quaternion.identity);
+
+        }
+        else if (rnd > 55)
+        {
+            objectPool.SpawnObject("Cube", new Vector3(nextspot, 0, 0), Quaternion.identity);
+
         }
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-
         if (collision.transform.tag == "MovingPlatform")
         {
-
-            //bodypart = Random.Range(0, 5);
-
-            //bodyobjects[bodypart].GetComponent<Renderer>().material = collision.transform.GetComponent<Renderer>().material;
+            //Might want to change so you can only jump again if you hit another platform, and not at the end of the animation
         }
     }
 

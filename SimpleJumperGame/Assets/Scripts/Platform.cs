@@ -36,6 +36,7 @@ public class Platform : MonoBehaviour
 
     public void Update()
     {
+        //Used to decide the movementspeed of the platform, as how to move with the different types
         if (mytype == PlatformType.Timed)
         {
             if (sinking)
@@ -73,6 +74,7 @@ public class Platform : MonoBehaviour
         //    gameObject.transform.localRotation = new Quaternion(0, 1, 0, 0);
         //}
 
+        //Decides where the reset position is, and if its hit it, send it back to the other side
         if (direction)
         {
             if (gameObject.transform.position.z >= maxZvalue)
@@ -90,6 +92,7 @@ public class Platform : MonoBehaviour
 
         }
 
+        //Decides if the updown platform is at its top, or at its bottom
         if (updown)
         {
             if (gameObject.transform.position.y >= 3)
@@ -128,6 +131,5 @@ public class Platform : MonoBehaviour
         yield return new WaitForSeconds(2);
         //Play animation for animal to disappear
         sinking = true;
-        //gameObject.transform.position = new Vector3(transform.position.x, -10, transform.position.z);
     }
 }
