@@ -420,6 +420,11 @@ Prefab:
       propertyPath: mytype
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114778276474726840, guid: fa4e6ad77d9439148bcfd058fbf74fd8,
+        type: 2}
+      propertyPath: mytype
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114299409173813338, guid: fa4e6ad77d9439148bcfd058fbf74fd8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fa4e6ad77d9439148bcfd058fbf74fd8, type: 2}

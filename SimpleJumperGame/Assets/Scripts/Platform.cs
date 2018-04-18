@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+
 
 enum PlatformType { Normal, Rotate, Timed, UpDown}
 
@@ -62,6 +64,11 @@ public class Platform : MonoBehaviour
             }
 
         }
+        else if(mytype == PlatformType.Rotate)
+        {
+            float step = movespeed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, transform.position.y, resetPos * 2), step);
+        }
         else
         {
             gameObject.transform.Translate(new Vector3(0, 0, movespeed) * Time.deltaTime);
@@ -69,10 +76,15 @@ public class Platform : MonoBehaviour
         }
 
         //Virker ikke, kan ikke få den til at rotate og bevæge sig på samme tid
-        //if (mytype == PlatformType.Rotate)
-        //{
-        //    gameObject.transform.localRotation = new Quaternion(0, 1, 0, 0);
-        //}
+        if (mytype == PlatformType.Rotate)
+        {
+            this.transform.DORotate(new Vector3(0,360, 0), 0.5f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart);
+
+           // gameObject.transform.localRotation = new Quaternion(0, 1, 0, 0);
+        }
+
+
+        
 
         //Decides where the reset position is, and if its hit it, send it back to the other side
         if (direction)
