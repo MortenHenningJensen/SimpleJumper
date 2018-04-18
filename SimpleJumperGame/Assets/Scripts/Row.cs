@@ -24,6 +24,25 @@ public class Row : MonoBehaviour
         foreach (Transform child in transform)
         {
             myChildren.Add(child);
+            child.gameObject.SetActive(true);
+        }
+
+        if (myChildren[0].name.Contains("Turtle"))
+        {
+            int rnd = Random.Range(0, myChildren.Count +1);
+            for (int i = 0; i <= myChildren.Count -1; i++)
+            {
+                Debug.Log(i);
+                if (myChildren[i] != myChildren[rnd])
+                {
+                    myChildren[i].gameObject.SetActive(false);
+                }
+            }
+        }
+
+        if (myChildren[0].name.Contains("Turtle"))
+        {
+            return;
         }
 
         //a factor which we can multiply by, to make the game progressevely harder
@@ -37,12 +56,12 @@ public class Row : MonoBehaviour
         //Checks the direction of the last row we made, and makes the new one run the other way
         if (GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight)
         {
-            newMovespeed = Random.Range(5, 10 * difficulty);
+            newMovespeed = Random.Range(5, 10 * (difficulty + 1));
             GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight = false;
         }
         else
         {
-            newMovespeed = Random.Range(-10 * (difficulty + 1), -5);
+            newMovespeed = Random.Range(-5, -10 * (difficulty + 1));
             GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight = true;
         }
 
@@ -56,6 +75,8 @@ public class Row : MonoBehaviour
             else
                 newMovespeed = 2;
         }
+
+
         // newMovespeed = Random.Range(-10 * (difficulty + 1), 10 * difficulty);
 
         //Gets the current size of the items

@@ -33,7 +33,15 @@ public class Platform : MonoBehaviour
 
     public void Start()
     {
-
+        if (movespeed == 0 && !transform.name.Contains("Turtle"))
+        {
+            if (GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight)
+            {
+                movespeed = -2;
+            }
+            else
+                movespeed = 2;
+        }
     }
 
     public void Update()
@@ -78,9 +86,7 @@ public class Platform : MonoBehaviour
         //Virker ikke, kan ikke få den til at rotate og bevæge sig på samme tid
         if (mytype == PlatformType.Rotate)
         {
-            this.transform.DORotate(new Vector3(0,360, 0), 0.5f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart);
-
-           // gameObject.transform.localRotation = new Quaternion(0, 1, 0, 0);
+            this.transform.DORotate(new Vector3(0,360, 0), 1f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Incremental);
         }
 
 

@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4213985720922374}
   - component: {fileID: 65970354145871274}
   - component: {fileID: 114116024881701064}
+  - component: {fileID: 65124053117816760}
   m_Layer: 0
   m_Name: Turtle (5)
   m_TagString: MovingPlatform
@@ -157,6 +158,7 @@ GameObject:
   - component: {fileID: 4027655646109030}
   - component: {fileID: 65425242761322738}
   - component: {fileID: 114808178143161264}
+  - component: {fileID: 65932994072663808}
   m_Layer: 0
   m_Name: Turtle (3)
   m_TagString: MovingPlatform
@@ -191,6 +193,7 @@ GameObject:
   - component: {fileID: 4784151479611002}
   - component: {fileID: 65171774693113578}
   - component: {fileID: 114817132598168508}
+  - component: {fileID: 65333773920779186}
   m_Layer: 0
   m_Name: Turtle (1)
   m_TagString: MovingPlatform
@@ -513,6 +516,7 @@ GameObject:
   - component: {fileID: 4340653398885018}
   - component: {fileID: 65451698389916176}
   - component: {fileID: 114245554301361274}
+  - component: {fileID: 65159936711426622}
   m_Layer: 0
   m_Name: Turtle (2)
   m_TagString: MovingPlatform
@@ -547,6 +551,7 @@ GameObject:
   - component: {fileID: 4535513054001180}
   - component: {fileID: 65423516697543828}
   - component: {fileID: 114261636098771356}
+  - component: {fileID: 65275059186796602}
   m_Layer: 0
   m_Name: Turtle (4)
   m_TagString: MovingPlatform
@@ -2355,6 +2360,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1442417767706804}
   m_Mesh: {fileID: 4300006, guid: d0db8215a660bcc4a8ed413c4f7a8b2e, type: 3}
+--- !u!65 &65124053117816760
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1051992995814390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.01, z: 0.13}
+  m_Center: {x: 0, y: 0.02, z: -0.03}
+--- !u!65 &65159936711426622
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1716320231932494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.01, z: 0.13}
+  m_Center: {x: 0, y: 0.02, z: -0.03}
 --- !u!65 &65171774693113578
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2367,6 +2396,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.03, z: 0.13}
   m_Center: {x: 0, y: 0, z: -0.03}
+--- !u!65 &65275059186796602
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1789257038517790}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.01, z: 0.13}
+  m_Center: {x: 0, y: 0.02, z: -0.03}
+--- !u!65 &65333773920779186
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1299328935103876}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.01, z: 0.13}
+  m_Center: {x: 0, y: 0.02, z: -0.03}
 --- !u!65 &65423516697543828
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2403,6 +2456,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.03, z: 0.13}
   m_Center: {x: 0, y: 0, z: -0.03}
+--- !u!65 &65932994072663808
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1284217219217476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.01, z: 0.13}
+  m_Center: {x: 0, y: 0.02, z: -0.03}
 --- !u!65 &65970354145871274
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2430,13 +2495,14 @@ MonoBehaviour:
   movespeed: 0
   resetPos: 0
   direction: 0
+  mytype: 0
 --- !u!114 &114199832031504716
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1701652059437430}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: babff9aae0dd8d048905253fb6bd2511, type: 3}
   m_Name: 
@@ -2457,6 +2523,7 @@ MonoBehaviour:
   movespeed: 0
   resetPos: 0
   direction: 0
+  mytype: 0
 --- !u!114 &114261636098771356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2472,6 +2539,7 @@ MonoBehaviour:
   movespeed: 0
   resetPos: 0
   direction: 0
+  mytype: 0
 --- !u!114 &114808178143161264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2487,6 +2555,7 @@ MonoBehaviour:
   movespeed: 0
   resetPos: 0
   direction: 0
+  mytype: 0
 --- !u!114 &114817132598168508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2502,3 +2571,4 @@ MonoBehaviour:
   movespeed: 0
   resetPos: 0
   direction: 0
+  mytype: 0
