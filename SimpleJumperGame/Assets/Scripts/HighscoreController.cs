@@ -43,11 +43,12 @@ public class HighscoreController : MonoBehaviour
         this.highscore = PlayerPrefs.GetInt("highscore");
     }
 
-    public void SetHighscore()
+    private void SetHighscore()
     {
         if (score > PlayerPrefs.GetInt("highscore"))
         {
             PlayerPrefs.SetInt("highscore", score);
+            UIController.Instance.Highscore.text = PlayerPrefs.GetInt("highscore").ToString();
         }
     }
 
@@ -56,7 +57,4 @@ public class HighscoreController : MonoBehaviour
         SetHighscore();
         this.score = 0;
     }
-        
-
-
 }

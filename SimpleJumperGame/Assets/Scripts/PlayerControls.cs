@@ -135,12 +135,12 @@ public class PlayerControls : MonoBehaviour
 
     private void KillPlayer()
     {
-        this.transform.position = startPos;
-        this.transform.parent = null;
         if (OnPlayerDeath != null)
         {
             OnPlayerDeath();
         }
+        this.transform.position = startPos;
+        this.transform.parent = null;
     }
 
     

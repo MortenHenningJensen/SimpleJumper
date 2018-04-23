@@ -5,17 +5,29 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    public static UIController Instance;
     [SerializeField]
     Text score;
 
     [SerializeField]
     Text highscore;
 
+    public Text Highscore
+    {
+        get
+        {
+            return highscore;
+        }
+
+        set
+        {
+            highscore = value;
+        }
+    }
 
     private void Start()
     {
-        PlayerControls.OnPlayerDeath += UpdateHighscoreText;
-        UpdateHighscoreText();
+        Instance = this;
     }
 
     void Update()
@@ -30,9 +42,5 @@ public class UIController : MonoBehaviour
         //string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
         //_txtTimer.text = niceTime;
     }
-
-    private void UpdateHighscoreText()
-    {
-        highscore.text = HighscoreController.Instance.Highscore.ToString();
-    }
+    
 }

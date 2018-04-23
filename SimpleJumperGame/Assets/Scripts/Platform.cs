@@ -33,6 +33,7 @@ public class Platform : MonoBehaviour
 
     public void Start()
     {
+        PlayerControls.OnPlayerDeath += OnPlayerDeath;
         if (movespeed == 0 && !transform.name.Contains("Turtle"))
         {
             if (GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight)
@@ -149,5 +150,10 @@ public class Platform : MonoBehaviour
         yield return new WaitForSeconds(2);
         //Play animation for animal to disappear
         sinking = true;
+    }
+
+    private void OnPlayerDeath()
+    {
+        this.hitByPlayer = false;
     }
 }
