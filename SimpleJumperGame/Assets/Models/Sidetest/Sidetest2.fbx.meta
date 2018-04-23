@@ -1,0 +1,773 @@
+fileFormatVersion: 2
+guid: 39603ea4625112e4ea47befc4d68cc0f
+timeCreated: 1524508779
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: node_id129
+    100002: node_id129 1
+    100004: node_id129 10
+    100006: node_id129 11
+    100008: node_id129 12
+    100010: node_id129 13
+    100012: node_id129 14
+    100014: node_id129 15
+    100016: node_id129 16
+    100018: node_id129 17
+    100020: node_id129 18
+    100022: node_id129 19
+    100024: node_id129 2
+    100026: node_id129 20
+    100028: node_id129 21
+    100030: node_id129 22
+    100032: node_id129 23
+    100034: node_id129 24
+    100036: node_id129 25
+    100038: node_id129 26
+    100040: node_id129 27
+    100042: node_id129 28
+    100044: node_id129 29
+    100046: node_id129 3
+    100048: node_id129 30
+    100050: node_id129 31
+    100052: node_id129 32
+    100054: node_id129 4
+    100056: node_id129 5
+    100058: node_id129 6
+    100060: node_id129 7
+    100062: node_id129 8
+    100064: node_id129 9
+    100066: node_id130
+    100068: node_id130 1
+    100070: node_id130 10
+    100072: node_id130 11
+    100074: node_id130 12
+    100076: node_id130 13
+    100078: node_id130 14
+    100080: node_id130 15
+    100082: node_id130 16
+    100084: node_id130 17
+    100086: node_id130 18
+    100088: node_id130 19
+    100090: node_id130 2
+    100092: node_id130 20
+    100094: node_id130 21
+    100096: node_id130 22
+    100098: node_id130 23
+    100100: node_id130 24
+    100102: node_id130 25
+    100104: node_id130 26
+    100106: node_id130 27
+    100108: node_id130 28
+    100110: node_id130 29
+    100112: node_id130 3
+    100114: node_id130 30
+    100116: node_id130 31
+    100118: node_id130 32
+    100120: node_id130 4
+    100122: node_id130 5
+    100124: node_id130 6
+    100126: node_id130 7
+    100128: node_id130 8
+    100130: node_id130 9
+    100132: node_id164
+    100134: node_id164 1
+    100136: node_id164 10
+    100138: node_id164 11
+    100140: node_id164 12
+    100142: node_id164 13
+    100144: node_id164 14
+    100146: node_id164 15
+    100148: node_id164 16
+    100150: node_id164 17
+    100152: node_id164 18
+    100154: node_id164 19
+    100156: node_id164 2
+    100158: node_id164 20
+    100160: node_id164 21
+    100162: node_id164 22
+    100164: node_id164 23
+    100166: node_id164 24
+    100168: node_id164 25
+    100170: node_id164 26
+    100172: node_id164 27
+    100174: node_id164 28
+    100176: node_id164 29
+    100178: node_id164 3
+    100180: node_id164 30
+    100182: node_id164 31
+    100184: node_id164 32
+    100186: node_id164 4
+    100188: node_id164 5
+    100190: node_id164 6
+    100192: node_id164 7
+    100194: node_id164 8
+    100196: node_id164 9
+    100198: node_id31
+    100200: node_id32
+    100202: node_id37
+    100204: node_id38
+    100206: node_id40
+    100208: node_id41
+    100210: node_id43
+    100212: node_id45
+    100214: node_id46
+    100216: node_id47
+    100218: node_id50
+    100220: node_id51
+    100222: node_id53
+    100224: node_id54
+    100226: node_id56
+    100228: root 1
+    100230: root 2
+    100232: root 3
+    100234: root 4
+    100236: //RootNode
+    400000: node_id129
+    400002: node_id129 1
+    400004: node_id129 10
+    400006: node_id129 11
+    400008: node_id129 12
+    400010: node_id129 13
+    400012: node_id129 14
+    400014: node_id129 15
+    400016: node_id129 16
+    400018: node_id129 17
+    400020: node_id129 18
+    400022: node_id129 19
+    400024: node_id129 2
+    400026: node_id129 20
+    400028: node_id129 21
+    400030: node_id129 22
+    400032: node_id129 23
+    400034: node_id129 24
+    400036: node_id129 25
+    400038: node_id129 26
+    400040: node_id129 27
+    400042: node_id129 28
+    400044: node_id129 29
+    400046: node_id129 3
+    400048: node_id129 30
+    400050: node_id129 31
+    400052: node_id129 32
+    400054: node_id129 4
+    400056: node_id129 5
+    400058: node_id129 6
+    400060: node_id129 7
+    400062: node_id129 8
+    400064: node_id129 9
+    400066: node_id130
+    400068: node_id130 1
+    400070: node_id130 10
+    400072: node_id130 11
+    400074: node_id130 12
+    400076: node_id130 13
+    400078: node_id130 14
+    400080: node_id130 15
+    400082: node_id130 16
+    400084: node_id130 17
+    400086: node_id130 18
+    400088: node_id130 19
+    400090: node_id130 2
+    400092: node_id130 20
+    400094: node_id130 21
+    400096: node_id130 22
+    400098: node_id130 23
+    400100: node_id130 24
+    400102: node_id130 25
+    400104: node_id130 26
+    400106: node_id130 27
+    400108: node_id130 28
+    400110: node_id130 29
+    400112: node_id130 3
+    400114: node_id130 30
+    400116: node_id130 31
+    400118: node_id130 32
+    400120: node_id130 4
+    400122: node_id130 5
+    400124: node_id130 6
+    400126: node_id130 7
+    400128: node_id130 8
+    400130: node_id130 9
+    400132: node_id164
+    400134: node_id164 1
+    400136: node_id164 10
+    400138: node_id164 11
+    400140: node_id164 12
+    400142: node_id164 13
+    400144: node_id164 14
+    400146: node_id164 15
+    400148: node_id164 16
+    400150: node_id164 17
+    400152: node_id164 18
+    400154: node_id164 19
+    400156: node_id164 2
+    400158: node_id164 20
+    400160: node_id164 21
+    400162: node_id164 22
+    400164: node_id164 23
+    400166: node_id164 24
+    400168: node_id164 25
+    400170: node_id164 26
+    400172: node_id164 27
+    400174: node_id164 28
+    400176: node_id164 29
+    400178: node_id164 3
+    400180: node_id164 30
+    400182: node_id164 31
+    400184: node_id164 32
+    400186: node_id164 4
+    400188: node_id164 5
+    400190: node_id164 6
+    400192: node_id164 7
+    400194: node_id164 8
+    400196: node_id164 9
+    400198: node_id31
+    400200: node_id32
+    400202: node_id37
+    400204: node_id38
+    400206: node_id40
+    400208: node_id41
+    400210: node_id43
+    400212: node_id45
+    400214: node_id46
+    400216: node_id47
+    400218: node_id50
+    400220: node_id51
+    400222: node_id53
+    400224: node_id54
+    400226: node_id56
+    400228: root 1
+    400230: root 2
+    400232: root 3
+    400234: root 4
+    400236: //RootNode
+    2100000: Material_509
+    2100002: Material_511
+    2100004: Material_513
+    2100006: Material_305
+    2100008: Material_307
+    2100010: Material_309
+    2100012: Material_311
+    2100014: Material_313
+    2100016: Material_315
+    2100018: Material_317
+    2100020: Material_319
+    2100022: Material_321
+    2100024: Material_323
+    2100026: Material_325
+    2100028: Material_327
+    2100030: Material_329
+    2100032: Material_331
+    2100034: Material_333
+    2100036: Material_335
+    2100038: Material_337
+    2100040: Material_339
+    2100042: Material_341
+    2100044: Material_343
+    2100046: Material_345
+    2100048: Material_347
+    2100050: Material_349
+    2100052: Material_351
+    2100054: Material_353
+    2100056: Material_355
+    2100058: Material_357
+    2100060: Material_359
+    2100062: Material_361
+    2100064: Material_363
+    2100066: Material_365
+    2100068: Material_367
+    2100070: Material_369
+    2100072: Material_371
+    2100074: Material_373
+    2100076: Material_515
+    2100078: Material_517
+    2100080: Material_519
+    2100082: Material_375
+    2100084: Material_377
+    2100086: Material_379
+    2100088: Material_381
+    2100090: Material_383
+    2100092: Material_385
+    2100094: Material_387
+    2100096: Material_389
+    2100098: Material_391
+    2100100: Material_393
+    2100102: Material_395
+    2100104: Material_397
+    2100106: Material_399
+    2100108: Material_401
+    2100110: Material_403
+    2100112: Material_405
+    2100114: Material_407
+    2100116: Material_409
+    2100118: Material_411
+    2100120: Material_413
+    2100122: Material_415
+    2100124: Material_417
+    2100126: Material_419
+    2100128: Material_421
+    2100130: Material_423
+    2100132: Material_425
+    2100134: Material_427
+    2100136: Material_429
+    2100138: Material_431
+    2100140: Material_433
+    2100142: Material_435
+    2100144: Material_437
+    2100146: Material_439
+    2100148: Material_441
+    2100150: Material_443
+    2100152: Material_445
+    2100154: Material_447
+    2100156: Material_449
+    2100158: Material_451
+    2100160: Material_453
+    2100162: Material_455
+    2100164: Material_457
+    2100166: Material_459
+    2100168: Material_461
+    2100170: Material_463
+    2100172: Material_465
+    2100174: Material_467
+    2100176: Material_469
+    2100178: Material_471
+    2100180: Material_473
+    2100182: Material_475
+    2100184: Material_477
+    2100186: Material_479
+    2100188: Material_481
+    2100190: Material_483
+    2100192: Material_485
+    2100194: Material_487
+    2100196: Material_489
+    2100198: Material_491
+    2100200: Material_493
+    2100202: Material_495
+    2100204: Material_497
+    2100206: Material_499
+    2100208: Material_501
+    2100210: Material_503
+    2100212: Material_505
+    2100214: Material_507
+    2100216: Material_297
+    2100218: Material_299
+    2100220: Material_301
+    2100222: Material_303
+    2300000: node_id129
+    2300002: node_id129 1
+    2300004: node_id129 10
+    2300006: node_id129 11
+    2300008: node_id129 12
+    2300010: node_id129 13
+    2300012: node_id129 14
+    2300014: node_id129 15
+    2300016: node_id129 16
+    2300018: node_id129 17
+    2300020: node_id129 18
+    2300022: node_id129 19
+    2300024: node_id129 2
+    2300026: node_id129 20
+    2300028: node_id129 21
+    2300030: node_id129 22
+    2300032: node_id129 23
+    2300034: node_id129 24
+    2300036: node_id129 25
+    2300038: node_id129 26
+    2300040: node_id129 27
+    2300042: node_id129 28
+    2300044: node_id129 29
+    2300046: node_id129 3
+    2300048: node_id129 30
+    2300050: node_id129 31
+    2300052: node_id129 32
+    2300054: node_id129 4
+    2300056: node_id129 5
+    2300058: node_id129 6
+    2300060: node_id129 7
+    2300062: node_id129 8
+    2300064: node_id129 9
+    2300066: node_id130
+    2300068: node_id130 1
+    2300070: node_id130 10
+    2300072: node_id130 11
+    2300074: node_id130 12
+    2300076: node_id130 13
+    2300078: node_id130 14
+    2300080: node_id130 15
+    2300082: node_id130 16
+    2300084: node_id130 17
+    2300086: node_id130 18
+    2300088: node_id130 19
+    2300090: node_id130 2
+    2300092: node_id130 20
+    2300094: node_id130 21
+    2300096: node_id130 22
+    2300098: node_id130 23
+    2300100: node_id130 24
+    2300102: node_id130 25
+    2300104: node_id130 26
+    2300106: node_id130 27
+    2300108: node_id130 28
+    2300110: node_id130 29
+    2300112: node_id130 3
+    2300114: node_id130 30
+    2300116: node_id130 31
+    2300118: node_id130 32
+    2300120: node_id130 4
+    2300122: node_id130 5
+    2300124: node_id130 6
+    2300126: node_id130 7
+    2300128: node_id130 8
+    2300130: node_id130 9
+    2300132: node_id164
+    2300134: node_id164 1
+    2300136: node_id164 10
+    2300138: node_id164 11
+    2300140: node_id164 12
+    2300142: node_id164 13
+    2300144: node_id164 14
+    2300146: node_id164 15
+    2300148: node_id164 16
+    2300150: node_id164 17
+    2300152: node_id164 18
+    2300154: node_id164 19
+    2300156: node_id164 2
+    2300158: node_id164 20
+    2300160: node_id164 21
+    2300162: node_id164 22
+    2300164: node_id164 23
+    2300166: node_id164 24
+    2300168: node_id164 25
+    2300170: node_id164 26
+    2300172: node_id164 27
+    2300174: node_id164 28
+    2300176: node_id164 29
+    2300178: node_id164 3
+    2300180: node_id164 30
+    2300182: node_id164 31
+    2300184: node_id164 32
+    2300186: node_id164 4
+    2300188: node_id164 5
+    2300190: node_id164 6
+    2300192: node_id164 7
+    2300194: node_id164 8
+    2300196: node_id164 9
+    2300198: node_id31
+    2300200: node_id32
+    2300202: node_id38
+    2300204: node_id41
+    2300206: node_id43
+    2300208: node_id47
+    2300210: node_id51
+    2300212: node_id54
+    2300214: node_id56
+    2300216: root 1
+    2300218: root 2
+    2300220: root 3
+    2300222: root 4
+    3300000: node_id129
+    3300002: node_id129 1
+    3300004: node_id129 10
+    3300006: node_id129 11
+    3300008: node_id129 12
+    3300010: node_id129 13
+    3300012: node_id129 14
+    3300014: node_id129 15
+    3300016: node_id129 16
+    3300018: node_id129 17
+    3300020: node_id129 18
+    3300022: node_id129 19
+    3300024: node_id129 2
+    3300026: node_id129 20
+    3300028: node_id129 21
+    3300030: node_id129 22
+    3300032: node_id129 23
+    3300034: node_id129 24
+    3300036: node_id129 25
+    3300038: node_id129 26
+    3300040: node_id129 27
+    3300042: node_id129 28
+    3300044: node_id129 29
+    3300046: node_id129 3
+    3300048: node_id129 30
+    3300050: node_id129 31
+    3300052: node_id129 32
+    3300054: node_id129 4
+    3300056: node_id129 5
+    3300058: node_id129 6
+    3300060: node_id129 7
+    3300062: node_id129 8
+    3300064: node_id129 9
+    3300066: node_id130
+    3300068: node_id130 1
+    3300070: node_id130 10
+    3300072: node_id130 11
+    3300074: node_id130 12
+    3300076: node_id130 13
+    3300078: node_id130 14
+    3300080: node_id130 15
+    3300082: node_id130 16
+    3300084: node_id130 17
+    3300086: node_id130 18
+    3300088: node_id130 19
+    3300090: node_id130 2
+    3300092: node_id130 20
+    3300094: node_id130 21
+    3300096: node_id130 22
+    3300098: node_id130 23
+    3300100: node_id130 24
+    3300102: node_id130 25
+    3300104: node_id130 26
+    3300106: node_id130 27
+    3300108: node_id130 28
+    3300110: node_id130 29
+    3300112: node_id130 3
+    3300114: node_id130 30
+    3300116: node_id130 31
+    3300118: node_id130 32
+    3300120: node_id130 4
+    3300122: node_id130 5
+    3300124: node_id130 6
+    3300126: node_id130 7
+    3300128: node_id130 8
+    3300130: node_id130 9
+    3300132: node_id164
+    3300134: node_id164 1
+    3300136: node_id164 10
+    3300138: node_id164 11
+    3300140: node_id164 12
+    3300142: node_id164 13
+    3300144: node_id164 14
+    3300146: node_id164 15
+    3300148: node_id164 16
+    3300150: node_id164 17
+    3300152: node_id164 18
+    3300154: node_id164 19
+    3300156: node_id164 2
+    3300158: node_id164 20
+    3300160: node_id164 21
+    3300162: node_id164 22
+    3300164: node_id164 23
+    3300166: node_id164 24
+    3300168: node_id164 25
+    3300170: node_id164 26
+    3300172: node_id164 27
+    3300174: node_id164 28
+    3300176: node_id164 29
+    3300178: node_id164 3
+    3300180: node_id164 30
+    3300182: node_id164 31
+    3300184: node_id164 32
+    3300186: node_id164 4
+    3300188: node_id164 5
+    3300190: node_id164 6
+    3300192: node_id164 7
+    3300194: node_id164 8
+    3300196: node_id164 9
+    3300198: node_id31
+    3300200: node_id32
+    3300202: node_id38
+    3300204: node_id41
+    3300206: node_id43
+    3300208: node_id47
+    3300210: node_id51
+    3300212: node_id54
+    3300214: node_id56
+    3300216: root 1
+    3300218: root 2
+    3300220: root 3
+    3300222: root 4
+    4300000: node_id32
+    4300002: node_id41
+    4300004: node_id38
+    4300006: node_id43
+    4300008: node_id56
+    4300010: node_id129
+    4300012: node_id129
+    4300014: node_id129
+    4300016: node_id129
+    4300018: node_id129
+    4300020: node_id129
+    4300022: node_id129
+    4300024: node_id129
+    4300026: node_id129
+    4300028: node_id129
+    4300030: node_id129
+    4300032: node_id129
+    4300034: node_id129
+    4300036: node_id129
+    4300038: node_id129
+    4300040: node_id129
+    4300042: node_id129
+    4300044: node_id129
+    4300046: node_id129
+    4300048: node_id129
+    4300050: node_id129
+    4300052: node_id129
+    4300054: node_id129
+    4300056: node_id129
+    4300058: node_id129
+    4300060: node_id129
+    4300062: node_id129
+    4300064: node_id129
+    4300066: node_id129
+    4300068: node_id129
+    4300070: node_id129
+    4300072: node_id129
+    4300074: node_id129
+    4300076: node_id51
+    4300078: node_id54
+    4300080: node_id31
+    4300082: node_id47
+    4300084: node_id164
+    4300086: node_id164
+    4300088: node_id164
+    4300090: node_id164
+    4300092: node_id164
+    4300094: node_id164
+    4300096: node_id164
+    4300098: node_id164
+    4300100: node_id164
+    4300102: node_id164
+    4300104: node_id164
+    4300106: node_id164
+    4300108: node_id164
+    4300110: node_id164
+    4300112: node_id164
+    4300114: node_id164
+    4300116: node_id164
+    4300118: node_id164
+    4300120: node_id164
+    4300122: node_id164
+    4300124: node_id164
+    4300126: node_id164
+    4300128: node_id164
+    4300130: node_id164
+    4300132: node_id164
+    4300134: node_id164
+    4300136: node_id164
+    4300138: node_id164
+    4300140: node_id164
+    4300142: node_id164
+    4300144: node_id164
+    4300146: node_id164
+    4300148: node_id164
+    4300150: node_id130
+    4300152: node_id130
+    4300154: node_id130
+    4300156: node_id130
+    4300158: node_id130
+    4300160: node_id130
+    4300162: node_id130
+    4300164: node_id130
+    4300166: node_id130
+    4300168: node_id130
+    4300170: node_id130
+    4300172: node_id130
+    4300174: node_id130
+    4300176: node_id130
+    4300178: node_id130
+    4300180: node_id130
+    4300182: node_id130
+    4300184: node_id130
+    4300186: node_id130
+    4300188: node_id130
+    4300190: node_id130
+    4300192: node_id130
+    4300194: node_id130
+    4300196: node_id130
+    4300198: node_id130
+    4300200: node_id130
+    4300202: node_id130
+    4300204: node_id130
+    4300206: node_id130
+    4300208: node_id130
+    4300210: node_id130
+    4300212: node_id130
+    4300214: node_id130
+    4300216: root
+    4300218: root
+    4300220: root
+    4300222: root
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
