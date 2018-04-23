@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControls : MonoBehaviour
 {
+    public static PlayerControls Instance;
+
+    public static System.Action OnPlayerDeath;
+
 
     [SerializeField]
     private GameObject jumpDestination;
@@ -20,7 +24,6 @@ public class PlayerControls : MonoBehaviour
     private bool isJumping;
     Rigidbody myBody;
 
-    public int score;
     public int jumpCounter;
 
     [SerializeField]
@@ -36,9 +39,9 @@ public class PlayerControls : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Instance = this;
         this.startPos = this.transform.position;
         myBody = GetComponent<Rigidbody>();
-        score = 0;
         jumpCounter = 0;
         firstSpawn = new Vector3(28, 0, 0);
         objectPool = PoolManager.Instance;
@@ -61,7 +64,7 @@ public class PlayerControls : MonoBehaviour
         if (this.transform.position.y <= -5)
         {
             // SceneManager.LoadScene(0);
-            ResetPlayer();
+            KillPlayer();
         }
 
     }
@@ -122,9 +125,23 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    private void ResetPlayer()
+    private void OnTriggerEnter(Collider other)
     {
-        this.transform.position = startPos;
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            KillPlayer();
+        }
     }
 
+    private void KillPlayer()
+    {
+        this.transform.position = startPos;
+        this.transform.parent = null;
+        if (OnPlayerDeath != null)
+        {
+            OnPlayerDeath();
+        }
+    }
+
+    
 }

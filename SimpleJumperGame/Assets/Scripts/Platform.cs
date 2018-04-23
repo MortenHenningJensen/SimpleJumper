@@ -134,7 +134,7 @@ public class Platform : MonoBehaviour
         if (other.GetComponent<PlayerControls>() && !hitByPlayer)
         {
             hitByPlayer = true;
-            other.GetComponent<PlayerControls>().score += scoreToAdd;
+            HighscoreController.Instance.Score++;
 
             if (mytype == PlatformType.Timed)
             {

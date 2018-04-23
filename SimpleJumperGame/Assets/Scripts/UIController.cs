@@ -7,18 +7,20 @@ public class UIController : MonoBehaviour
 {
     [SerializeField]
     Text score;
-    public PlayerControls pc;
 
-    // Use this for initialization
-    void Start()
+    [SerializeField]
+    Text highscore;
+
+
+    private void Start()
     {
-        pc = GameObject.Find("JumpChar").GetComponent<PlayerControls>();
+        PlayerControls.OnPlayerDeath += UpdateHighscoreText;
+        UpdateHighscoreText();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        score.text = pc.score.ToString();
+        score.text = HighscoreController.Instance.Score.ToString();
     }
 
     private void OnGUI()
@@ -27,7 +29,10 @@ public class UIController : MonoBehaviour
         //int seconds = Mathf.FloorToInt(timer - minutes * 60);
         //string niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
         //_txtTimer.text = niceTime;
-
     }
 
+    private void UpdateHighscoreText()
+    {
+        highscore.text = HighscoreController.Instance.Highscore.ToString();
+    }
 }
