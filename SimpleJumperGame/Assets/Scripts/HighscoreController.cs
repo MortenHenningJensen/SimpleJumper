@@ -40,7 +40,12 @@ public class HighscoreController : MonoBehaviour
     {
         Instance = this;
         PlayerControls.OnPlayerDeath += OnPlayerDeath;
+    }
+
+    private void Start()
+    {
         this.highscore = PlayerPrefs.GetInt("highscore");
+        UIController.Instance.Highscore.text = highscore.ToString();
     }
 
     private void SetHighscore()

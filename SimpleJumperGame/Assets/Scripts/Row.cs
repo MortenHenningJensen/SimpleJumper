@@ -27,15 +27,18 @@ public class Row : MonoBehaviour
             child.gameObject.SetActive(true);
         }
 
+
         if (myChildren[0].name.Contains("Turtle"))
         {
-            int rnd = Random.Range(0, myChildren.Count +1);
-            for (int i = 0; i <= myChildren.Count -1; i++)
+            if (Random.Range(0, 100) > 50)
             {
-                Debug.Log(i);
-                if (myChildren[i] != myChildren[rnd])
+                int rnd = Random.Range(0, myChildren.Count + 1);
+                for (int i = 0; i <= myChildren.Count - 1; i++)
                 {
-                    myChildren[i].gameObject.SetActive(false);
+                    if (myChildren[i] != myChildren[rnd])
+                    {
+                        myChildren[i].gameObject.SetActive(false);
+                    }
                 }
             }
         }
@@ -66,7 +69,7 @@ public class Row : MonoBehaviour
         }
 
         //Safety, dosent really work, might be the way the random value us calculated above
-        if(newMovespeed == 0)
+        if (newMovespeed == 0)
         {
             if (GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight)
             {

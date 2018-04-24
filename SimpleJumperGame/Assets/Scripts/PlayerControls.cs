@@ -27,14 +27,17 @@ public class PlayerControls : MonoBehaviour
     public int jumpCounter;
 
     [SerializeField]
-    GameObject[] bodyobjects;
-    public int bodypart;
+    GameObject[] sideObjects;
+
+    private int objectIterator;
 
     public Vector3 firstSpawn;
 
     PoolManager objectPool;
 
     public bool leftRight;
+
+
 
     // Use this for initialization
     void Start()
@@ -74,6 +77,11 @@ public class PlayerControls : MonoBehaviour
         this.isJumping = true;
         this.jumpCounter++;
         SpawnNew();
+
+        if (jumpCounter % 5 == 0)
+        {
+            MoveSides();
+        }
     }
 
 
@@ -100,6 +108,57 @@ public class PlayerControls : MonoBehaviour
             objectPool.SpawnObject("Cube", new Vector3(nextspot, 0, 0), Quaternion.identity);
 
         }
+    }
+    Vector3 oldPos;
+    Vector3 oldPos2;
+    Vector3 myNewPos;
+    Vector3 myNewPos2;
+
+    public void MoveSides()
+    {
+        switch (objectIterator)
+        {
+            case 0:
+                oldPos = sideObjects[0].transform.position;
+                oldPos2 = sideObjects[1].transform.position;
+
+                myNewPos = new Vector3(oldPos.x + 100, oldPos.y, oldPos.z);
+                myNewPos2 = new Vector3(oldPos2.x + 100, oldPos2.y, oldPos2.z);
+
+                sideObjects[0].transform.position = myNewPos;
+                sideObjects[1].transform.position = myNewPos2;
+                break;
+            case 1:
+                oldPos = sideObjects[2].transform.position;
+                oldPos2 = sideObjects[3].transform.position;
+
+                myNewPos = new Vector3(oldPos.x + 100, oldPos.y, oldPos.z);
+                myNewPos2 = new Vector3(oldPos2.x + 100, oldPos2.y, oldPos2.z);
+
+                sideObjects[2].transform.position = myNewPos;
+                sideObjects[3].transform.position = myNewPos2;
+                break;
+            case 2:
+                oldPos = sideObjects[4].transform.position;
+                oldPos2 = sideObjects[5].transform.position;
+
+                myNewPos = new Vector3(oldPos.x + 100, oldPos.y, oldPos.z);
+                myNewPos2 = new Vector3(oldPos2.x + 100, oldPos2.y, oldPos2.z);
+
+                sideObjects[4].transform.position = myNewPos;
+                sideObjects[5].transform.position = myNewPos2;
+                break;
+
+        }
+        if (objectIterator < 3)
+        {
+            objectIterator++;
+        }
+        else
+        {
+            objectIterator = 0;
+        }
+
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -143,5 +202,5 @@ public class PlayerControls : MonoBehaviour
         this.transform.parent = null;
     }
 
-    
+
 }
