@@ -391,6 +391,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5c8980aeadc9624782ae4fa50b72956, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &366855933
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4922735003633860, guid: b3aa6791da8701440a7fa8f4ce2abc22, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.385
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922735003633860, guid: b3aa6791da8701440a7fa8f4ce2abc22, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922735003633860, guid: b3aa6791da8701440a7fa8f4ce2abc22, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922735003633860, guid: b3aa6791da8701440a7fa8f4ce2abc22, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922735003633860, guid: b3aa6791da8701440a7fa8f4ce2abc22, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922735003633860, guid: b3aa6791da8701440a7fa8f4ce2abc22, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922735003633860, guid: b3aa6791da8701440a7fa8f4ce2abc22, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922735003633860, guid: b3aa6791da8701440a7fa8f4ce2abc22, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b3aa6791da8701440a7fa8f4ce2abc22, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &444970276
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,6 +472,12 @@ MonoBehaviour:
     size: 5
   - tag: Raft
     prefab: {fileID: 1329215789375124, guid: 8a1cad94169c7ba4980c3e1b5c459a9a, type: 2}
+    size: 5
+  - tag: Projectile
+    prefab: {fileID: 1712841457375840, guid: f20843398402c0a4fa7597447dd6dfd0, type: 2}
+    size: 5
+  - tag: Enemy
+    prefab: {fileID: 1284359939245366, guid: b3aa6791da8701440a7fa8f4ce2abc22, type: 2}
     size: 5
 --- !u!4 &444970278
 Transform:
@@ -2225,7 +2273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpDestination: {fileID: 1519150332}
   superJumpDestination: {fileID: 1202286381}
+  shooter: {fileID: 1843109741}
   jumpEase: 1
+  timeBeforeReset: 1
   jumpCounter: 0
   sideObjects:
   - {fileID: 506530408}
@@ -2260,6 +2310,48 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400436, guid: ae81c6ac744a1a64e9e5806a731a5e52, type: 3}
   m_PrefabInternal: {fileID: 1172588190}
+--- !u!1 &1843109740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1843109742}
+  - component: {fileID: 1843109741}
+  m_Layer: 0
+  m_Name: ProjectileEmitter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1843109741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1843109740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b1ac893753fd4429b2a594f4ef03a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabProjectile: {fileID: 1712841457375840, guid: f20843398402c0a4fa7597447dd6dfd0,
+    type: 2}
+--- !u!4 &1843109742
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1843109740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.0004, z: 0.00201}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1810549379}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869310177 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100238, guid: 4c745c41cff0e0e4a8e6f3b48392c2d3, type: 3}

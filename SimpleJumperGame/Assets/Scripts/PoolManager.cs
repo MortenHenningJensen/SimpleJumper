@@ -69,4 +69,10 @@ public class PoolManager : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
+    public IEnumerator DespawnObjectTimer(GameObject go, float time)
+    {
+        yield return new WaitForSeconds(time);
+        go.SetActive(false);
+    }
+
 }

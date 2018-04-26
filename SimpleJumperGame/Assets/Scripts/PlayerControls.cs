@@ -17,7 +17,13 @@ public class PlayerControls : MonoBehaviour
     private GameObject superJumpDestination;
 
     [SerializeField]
+    private WeaponController shooter;
+
+    [SerializeField]
     private Ease jumpEase;
+
+    [SerializeField]
+    private float timeBeforeReset;
 
     private Vector3 startPos;
 
@@ -64,10 +70,15 @@ public class PlayerControls : MonoBehaviour
             this.transform.DOJump(this.superJumpDestination.transform.position, 5, 0, 1f).SetEase(this.jumpEase).OnStart(() => this.isJumping = true).OnComplete(() => this.isJumping = false);
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            shooter.FireWeapon();
+        }
+
         if (this.transform.position.y <= -5)
         {
             // SceneManager.LoadScene(0);
-            KillPlayer();
+            StartCoroutine(KillPlayer());
         }
 
     }
@@ -167,6 +178,8 @@ public class PlayerControls : MonoBehaviour
         {
             //Might want to change so you can only jump again if you hit another platform, and not at the end of the animation
         }
+
+       
     }
 
     public void OnCollisionStay(Collision collision)
@@ -188,12 +201,21 @@ public class PlayerControls : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-            KillPlayer();
+           StartCoroutine(KillPlayer());
+        }
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            StartCoroutine(KillPlayer());
         }
     }
+    
 
-    private void KillPlayer()
+    public IEnumerator KillPlayer()
     {
+
+        //Set time before reset, to the lenght of death animation
+        yield return new WaitForSeconds(this.timeBeforeReset);
         if (OnPlayerDeath != null)
         {
             OnPlayerDeath();
