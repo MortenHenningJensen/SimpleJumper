@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 65081983519436408}
   - component: {fileID: 114220377768169990}
   - component: {fileID: 65423158270753444}
+  - component: {fileID: 111850304838095584}
   m_Layer: 0
   m_Name: Raft (2)
   m_TagString: MovingPlatform
@@ -175,6 +176,7 @@ GameObject:
   - component: {fileID: 65692874228446544}
   - component: {fileID: 114084727289462328}
   - component: {fileID: 65017853409754602}
+  - component: {fileID: 111181348080102606}
   m_Layer: 0
   m_Name: Raft (1)
   m_TagString: MovingPlatform
@@ -346,6 +348,7 @@ GameObject:
   - component: {fileID: 65415644726186444}
   - component: {fileID: 114604038060328960}
   - component: {fileID: 65072521249541530}
+  - component: {fileID: 111239156670158674}
   m_Layer: 0
   m_Name: Raft
   m_TagString: MovingPlatform
@@ -2152,6 +2155,48 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.39, y: 0.3, z: 1.88}
   m_Center: {x: 0, y: -0, z: -0.54}
+--- !u!111 &111181348080102606
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1347312181876588}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cb01a01a9a9c0be489e0f64c641d1c00, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!111 &111239156670158674
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1655994585429844}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cb01a01a9a9c0be489e0f64c641d1c00, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!111 &111850304838095584
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153949258587712}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: cb01a01a9a9c0be489e0f64c641d1c00, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114084727289462328
 MonoBehaviour:
   m_ObjectHideFlags: 1

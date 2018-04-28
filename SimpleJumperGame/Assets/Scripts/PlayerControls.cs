@@ -62,7 +62,8 @@ public class PlayerControls : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && !this.isJumping)
         {
-            this.transform.DOJump(this.jumpDestination.transform.position, 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(OnJump).OnComplete(() => this.isJumping = false);
+            Jump();
+           // this.transform.DOJump(this.jumpDestination.transform.position, 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(OnJump).OnComplete(() => this.isJumping = false);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && !this.isJumping)
@@ -81,6 +82,11 @@ public class PlayerControls : MonoBehaviour
             StartCoroutine(KillPlayer());
         }
 
+    }
+
+    public void Jump()
+    {
+        this.transform.DOJump(this.jumpDestination.transform.position, 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(OnJump);
     }
 
     public void OnJump()
@@ -177,6 +183,8 @@ public class PlayerControls : MonoBehaviour
         if (collision.transform.tag == "MovingPlatform")
         {
             //Might want to change so you can only jump again if you hit another platform, and not at the end of the animation
+            isJumping = false;
+
         }
 
        
