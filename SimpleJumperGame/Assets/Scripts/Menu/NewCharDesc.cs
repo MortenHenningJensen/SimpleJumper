@@ -12,6 +12,8 @@ public class NewCharDesc : MonoBehaviour
     string desc;
     [SerializeField]
     byte unlocked;
+    [SerializeField]
+    int id;
 
     public string CharName
     {
@@ -62,6 +64,19 @@ public class NewCharDesc : MonoBehaviour
         set
         {
             unlocked = value;
+        }
+    }
+
+    public int Id
+    {
+        get
+        {
+            return id;
+        }
+
+        set
+        {
+            id = value;
         }
     }
 

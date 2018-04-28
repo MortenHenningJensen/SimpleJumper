@@ -33,6 +33,11 @@ public class MenuButtons : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        coinText.text = myCoinNum.ToString();
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
