@@ -31,6 +31,9 @@ public class CharacterSelecter : MonoBehaviour
     [SerializeField]
     private Button unlockChar;
 
+    [SerializeField]
+    private Button selectChar;
+
     int charId;
     [SerializeField]
     private Image coinImg;
@@ -51,6 +54,7 @@ public class CharacterSelecter : MonoBehaviour
 
         coinImg.gameObject.SetActive(false);
         unlockChar.gameObject.SetActive(false);
+        selectChar.gameObject.SetActive(false);
     }
 
     public void SetUpMenu()
@@ -106,10 +110,12 @@ public class CharacterSelecter : MonoBehaviour
 
         if (obj.transform.GetChild(0).GetComponent<NewCharDesc>().Unlocked == 0)
         {
+            selectChar.gameObject.SetActive(false);
             unlockChar.gameObject.SetActive(true);
         }
         else
         {
+            selectChar.gameObject.SetActive(true);
             unlockChar.gameObject.SetActive(false);
         }
 
@@ -129,10 +135,18 @@ public class CharacterSelecter : MonoBehaviour
             {
                 if (item.GetComponent<NewCharDesc>().Unlocked != 1)
                 {
-                    if (PlayerPrefs.GetInt("myCoins") > item.GetComponent<NewCharDesc>().Price)
+                    if (PlayerPrefs.GetInt("myCoins") >= item.GetComponent<NewCharDesc>().Price)
                     {
                         item.GetComponent<NewCharDesc>().Unlocked = 1;
+                        //THIS LINE TAKES MONEY FROM THE PLAYER TO PURCHASE THE DESIRED CHARACTER
                         PlayerPrefs.SetInt("myCoins", PlayerPrefs.GetInt("myCoins") - item.GetComponent<NewCharDesc>().Price);
+
+                        //THIS INT WILL BE SAVED SO THE DEVICE KNOWS WHICH CHARACTER HAS BEEN UNLOCKED
+                        //needs to match the id made in NewCharDesc
+                        PlayerPrefs.SetInt("charId " + charId, 1);
+
+                        //need to run this method on click, but need to find a better gameobject to send with it
+                        ShowInfo(this.gameObject);
                     }
                     else
                     {
@@ -145,9 +159,10 @@ public class CharacterSelecter : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SelectCharacter()
     {
-        //if a new character is clicked, put it up on the big ones place
+        PlayerPrefs.SetInt("myCoins", 200);
+        //int to use for spawning a player prefab later, will be determined from the charId
+        PlayerPrefs.SetInt("SelectedCharacter", charId);
     }
 }

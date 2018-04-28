@@ -46,7 +46,7 @@ public class Platform : MonoBehaviour
         PlayerControls.OnPlayerDeath += OnPlayerDeath;
         if (movespeed == 0 && !transform.name.Contains("Turtle"))
         {
-            if (GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight)
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().leftRight)
             {
                 movespeed = -2;
             }

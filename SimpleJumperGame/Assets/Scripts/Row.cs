@@ -49,29 +49,29 @@ public class Row : MonoBehaviour
         }
 
         //a factor which we can multiply by, to make the game progressevely harder
-        difficulty = (GameObject.Find("JumpChar").GetComponent<PlayerControls>().jumpCounter + 1) / 100f;
+        difficulty = (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().jumpCounter + 1) / 100f;
 
         //Used to decide the scale of the item
         myScale = myChildren[0].localScale;
-        myScale.x -= (GameObject.Find("JumpChar").GetComponent<PlayerControls>().jumpCounter / 50);
-        myScale.z -= (GameObject.Find("JumpChar").GetComponent<PlayerControls>().jumpCounter / 50);
+        myScale.x -= (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().jumpCounter / 50);
+        myScale.z -= (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().jumpCounter / 50);
 
         //Checks the direction of the last row we made, and makes the new one run the other way
-        if (GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight)
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().leftRight)
         {
             newMovespeed = Random.Range(5, 10 * (difficulty + 1));
-            GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight = false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().leftRight = false;
         }
         else
         {
             newMovespeed = Random.Range(-5, -10 * (difficulty + 1));
-            GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().leftRight = true;
         }
 
         //Safety, dosent really work, might be the way the random value us calculated above
         if (newMovespeed == 0)
         {
-            if (GameObject.Find("JumpChar").GetComponent<PlayerControls>().leftRight)
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().leftRight)
             {
                 newMovespeed = -2;
             }

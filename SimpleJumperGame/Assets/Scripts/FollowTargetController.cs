@@ -15,6 +15,10 @@ public class FollowTargetController : MonoBehaviour
 
 	void Start ()
     {
+        if (ft == followType.XZ)
+        {
+            target = GameObject.FindGameObjectWithTag("Player");
+        }
         this.offset = this.transform.position - this.target.transform.position;
 	}
 	

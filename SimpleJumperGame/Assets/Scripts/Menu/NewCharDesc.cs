@@ -83,6 +83,11 @@ public class NewCharDesc : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (PlayerPrefs.GetInt("charId " + id) == 1)
+        {
+            unlocked = 1;
+        }
+
         if (unlocked != 1)
         {
             //Grey out the model here, might want to get all child objects through a loop and then grey them out there.

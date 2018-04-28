@@ -35,7 +35,7 @@ public class MenuButtons : MonoBehaviour
 
     private void Update()
     {
-        coinText.text = myCoinNum.ToString();
+        coinText.text = PlayerPrefs.GetInt("myCoins").ToString();
     }
 
     public void StartGame()
