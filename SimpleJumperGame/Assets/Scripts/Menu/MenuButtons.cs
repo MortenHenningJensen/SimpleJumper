@@ -25,9 +25,12 @@ public class MenuButtons : MonoBehaviour
 
     private void Start()
     {
+        shopCanvas.GetComponent<CharacterSelecter>().SetUpMenu();
+        shopCanvas.enabled = false;
         shopCam.enabled = false;
         myCoinNum = PlayerPrefs.GetInt("myCoins");
         coinText.text = myCoinNum.ToString();
+
     }
 
     public void StartGame()
@@ -49,12 +52,14 @@ public class MenuButtons : MonoBehaviour
         {
             menuCam.enabled = false;
             shopCam.enabled = true;
+
         }
         else
         {
             menuCam.enabled = true;
             shopCam.enabled = false;
         }
+
 
     }
 }
