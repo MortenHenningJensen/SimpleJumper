@@ -27,18 +27,23 @@ public class CharacterSelecter : MonoBehaviour
         for (int i = 0; i < charSpots.Length; i++)
         {
             Vector3 newspot = charSpots[i].transform.position;
-            mychars[i + charsView].transform.position = newspot;
+            if (mychars[i + charsView] != null)
+            {
+                mychars[i + charsView].transform.position = newspot;
+                mychars[i + charsView].transform.parent = charSpots[i].transform;
+            }
         }
     }
 
     public void NextChars()
     {
         charsView++;
-        if (charsView + 3 > mychars.Length)
+        if (charsView > mychars.Length - charsToShow)
             charsView = 0;
 
         foreach (var item in mychars)
         {
+            item.transform.parent = null;
             item.transform.position = new Vector3(50, 10, -25);
         }
 
@@ -49,7 +54,7 @@ public class CharacterSelecter : MonoBehaviour
     {
         charsView--;
         if (charsView < 0)
-            charsView = mychars.Length - 3;
+            charsView = mychars.Length - charsToShow;
 
         foreach (var item in mychars)
         {
@@ -62,13 +67,6 @@ public class CharacterSelecter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (charsView >= 1)
-        //{
-        //    GameObject.Find("previous").GetComponent<Button>().interactable = true;
-        //}
-        //else
-        //{
-        //    GameObject.Find("previous").GetComponent<Button>().interactable = false;
-        //}
+        //if a new character is clicked, put it up on the big ones place
     }
 }
