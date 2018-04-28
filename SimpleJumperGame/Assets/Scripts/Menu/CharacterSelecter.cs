@@ -49,7 +49,7 @@ public class CharacterSelecter : MonoBehaviour
     {
         charsView--;
         if (charsView < 0)
-            charsView = mychars.Length;
+            charsView = mychars.Length - 3;
 
         foreach (var item in mychars)
         {
@@ -62,13 +62,13 @@ public class CharacterSelecter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (charsView >= 1)
-        {
-            GameObject.Find("previous").GetComponent<Button>().interactable = true;
-        }
-        else
-        {
-            GameObject.Find("previous").GetComponent<Button>().interactable = false;
-        }
+        //if (charsView >= 1)
+        //{
+        //    GameObject.Find("previous").GetComponent<Button>().interactable = true;
+        //}
+        //else
+        //{
+        //    GameObject.Find("previous").GetComponent<Button>().interactable = false;
+        //}
     }
 }
