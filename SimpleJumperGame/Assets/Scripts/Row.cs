@@ -17,6 +17,19 @@ public class Row : MonoBehaviour
     float difficulty;
     Vector3 myScale;
 
+    public List<Transform> MyChildren
+    {
+        get
+        {
+            return myChildren;
+        }
+
+        set
+        {
+            myChildren = value;
+        }
+    }
+
     // Use this for initialization
     void Start()
     {

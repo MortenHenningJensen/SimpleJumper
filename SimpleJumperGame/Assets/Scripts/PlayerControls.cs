@@ -199,8 +199,6 @@ public class PlayerControls : MonoBehaviour
         }
         else
         {
-            Debug.Log(collision);
-
             transform.parent = null;
         }
     }

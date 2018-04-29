@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PoolManager : MonoBehaviour {
-    [SerializeField]
-    private Transform poolsParent;
+    
 
     [System.Serializable]
     public class Pool
@@ -37,7 +36,6 @@ public class PoolManager : MonoBehaviour {
             for (int i = 0; i < pool.size; i++)
             {
                 GameObject obj = Instantiate(pool.prefab);
-                obj.transform.parent = poolsParent;
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
