@@ -32,8 +32,23 @@ public class Platform : MonoBehaviour
     [SerializeField]
     PlatformType mytype;
 
+    [SerializeField]
+    MoveDirection myDirection;
+
     PoolManager objectPool;
 
+    public MoveDirection MyDirection
+    {
+        get
+        {
+            return myDirection;
+        }
+
+        set
+        {
+            myDirection = value;
+        }
+    }
 
     public void Start()
     {
@@ -146,8 +161,7 @@ public class Platform : MonoBehaviour
     {
         if (other.GetComponent<PlayerControls>() && !hitByPlayer)
         {
-            this.transform.DOLocalMoveY(this.transform.position.y - 0.1f, 0.2f, false);
-            StartCoroutine(GoUp());
+            StartCoroutine(ShakePlatform());
             hitByPlayer = true;
             HighscoreController.Instance.Score++;
 
@@ -159,10 +173,10 @@ public class Platform : MonoBehaviour
         }
     }
 
-    IEnumerator GoUp()
+    private IEnumerator ShakePlatform()
     {
-        yield return new WaitForSeconds(0.2f);
-        this.transform.DOLocalMoveY(this.transform.position.y + 0.1f, 0.2f, false);
+        this.transform.DOShakePosition(0.2f, new Vector3(0, 0.3f,0),10,40);
+        yield return new WaitForSeconds(0);
     }
 
     public IEnumerator Disappear()

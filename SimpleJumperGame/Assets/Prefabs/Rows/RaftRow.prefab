@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 114847207004189656}
   m_Layer: 0
   m_Name: RaftRow
-  m_TagString: Untagged
+  m_TagString: Row
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2213,6 +2213,7 @@ MonoBehaviour:
   resetPos: 0
   direction: 0
   mytype: 0
+  myDirection: 0
 --- !u!114 &114220377768169990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2229,6 +2230,7 @@ MonoBehaviour:
   resetPos: 0
   direction: 0
   mytype: 0
+  myDirection: 0
 --- !u!114 &114604038060328960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2245,6 +2247,7 @@ MonoBehaviour:
   resetPos: 0
   direction: 0
   mytype: 0
+  myDirection: 0
 --- !u!114 &114847207004189656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2257,3 +2260,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myChildren: []
+  myDirection: 0

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MoveDirection { Left, Right }
 public class Row : MonoBehaviour
 {
-
     [SerializeField]
     List<Transform> myChildren;
     float newMovespeed;
@@ -16,6 +16,45 @@ public class Row : MonoBehaviour
 
     float difficulty;
     Vector3 myScale;
+
+    [SerializeField]
+    private MoveDirection myDirection;
+
+    public List<Transform> MyChildren
+    {
+        get
+        {
+            return myChildren;
+        }
+
+        set
+        {
+            myChildren = value;
+        }
+    }
+
+    public MoveDirection MyDirection
+    {
+        get
+        {
+            return myDirection;
+        }
+
+        set
+        {
+            myDirection = value;
+        }
+    }
+
+    private void OnEnable()
+    {
+        foreach (Transform child in transform)
+        {
+            //Sets the direction of children platforms to be the same as the row
+            child.GetComponent<Platform>().MyDirection = this.myDirection;
+        }
+    }
+
 
     // Use this for initialization
     void Start()
@@ -109,11 +148,5 @@ public class Row : MonoBehaviour
             //sets the movespeed of the platform
             item.GetComponent<Platform>().movespeed = (int)newMovespeed;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

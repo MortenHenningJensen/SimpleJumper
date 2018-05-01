@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 114776031491069866}
   m_Layer: 0
   m_Name: LillyRow
-  m_TagString: Untagged
+  m_TagString: Row
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -440,6 +440,7 @@ MonoBehaviour:
   resetPos: 0
   direction: 0
   mytype: 0
+  myDirection: 0
 --- !u!114 &114394517069075876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -456,6 +457,7 @@ MonoBehaviour:
   resetPos: 0
   direction: 0
   mytype: 0
+  myDirection: 0
 --- !u!114 &114545957659298874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -472,6 +474,7 @@ MonoBehaviour:
   resetPos: 0
   direction: 0
   mytype: 0
+  myDirection: 0
 --- !u!114 &114776031491069866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -484,3 +487,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myChildren: []
+  myDirection: 0
