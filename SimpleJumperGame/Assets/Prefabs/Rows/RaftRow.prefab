@@ -2256,4 +2256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babff9aae0dd8d048905253fb6bd2511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myChildren: []
+  myChildren:
+  - {fileID: 4804591412261964}
+  - {fileID: 4914308843427840}
+  - {fileID: 4746281978117418}

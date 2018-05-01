@@ -2915,7 +2915,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babff9aae0dd8d048905253fb6bd2511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myChildren: []
+  myChildren:
+  - {fileID: 4248650363286296}
+  - {fileID: 4724654005769774}
+  - {fileID: 4615633502399810}
+  - {fileID: 4710060441554692}
 --- !u!114 &114933680950042628
 MonoBehaviour:
   m_ObjectHideFlags: 1

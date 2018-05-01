@@ -34,11 +34,11 @@ public class Row : MonoBehaviour
     void Start()
     {
         //adds all children to a list, so we can modify them
-        foreach (Transform child in transform)
-        {
-            myChildren.Add(child);
-            child.gameObject.SetActive(true);
-        }
+        //foreach (Transform child in transform)
+        //{
+        //    myChildren.Add(child);
+        //    child.gameObject.SetActive(true);
+        //}
 
 
         if (myChildren[0].name.Contains("Turtle"))
