@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 151951009}
   - component: {fileID: 151951008}
   - component: {fileID: 151951007}
+  - component: {fileID: 151951011}
   m_Layer: 0
   m_Name: RowDespawner
   m_TagString: Untagged
@@ -408,12 +409,25 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 151951006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 10, z: 55}
+  m_LocalPosition: {x: -20, y: 0, z: 0}
+  m_LocalScale: {x: 3.4, y: 18.3, z: 60.06}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &151951011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 151951006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91c23fd007241684fa62ddf65761cf61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 506330105}
+  ft: 1
 --- !u!1 &204192557
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,10 +853,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c092ed2812d8ad240b0fb5a2d900438d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpDestination: {fileID: 1339525978}
-  superJumpDestination: {fileID: 1188661683}
   shooter: {fileID: 1894896812}
   jumpEase: 1
+  jumpDesYValue: 3
   timeBeforeReset: 1
   jumpCounter: 0
   sideObjects:
@@ -852,7 +865,6 @@ MonoBehaviour:
   - {fileID: 1884749222}
   - {fileID: 715680991}
   - {fileID: 952517529}
-  firstSpawn: {x: 0, y: 0, z: 0}
   leftRight: 0
 --- !u!65 &506330107
 BoxCollider:
@@ -1230,75 +1242,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1137367494
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1137367498}
-  - component: {fileID: 1137367497}
-  - component: {fileID: 1137367496}
-  - component: {fileID: 1137367495}
-  m_Layer: 0
-  m_Name: RowSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1137367495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1137367494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aaac69857d0df346b5ec2dc99f7df34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!54 &1137367496
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1137367494}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &1137367497
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1137367494}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &1137367498
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1137367494}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 45.08, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 10, z: 55}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1155290723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,36 +1273,6 @@ Transform:
   m_Father: {fileID: 1966977505}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1188661683
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1792735551455560, guid: f30189a863e0b1040a8ed57a7efce19d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1188661684}
-  m_Layer: 0
-  m_Name: SuperJumpDestination
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1188661684
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4035808163979930, guid: f30189a863e0b1040a8ed57a7efce19d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1188661683}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0349}
-  m_LocalScale: {x: 0.0037500006, y: 0.00375, z: 0.0037500006}
-  m_Children: []
-  m_Father: {fileID: 506330109}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1192943525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,7 +1285,6 @@ GameObject:
   - component: {fileID: 1192943527}
   - component: {fileID: 1192943526}
   - component: {fileID: 1192943530}
-  - component: {fileID: 1192943531}
   m_Layer: 0
   m_Name: GodObject
   m_TagString: Untagged
@@ -1418,13 +1330,13 @@ MonoBehaviour:
   pools:
   - tag: LilyRow
     prefab: {fileID: 1822348194236710, guid: 5766c663a07daa5418fafde1bd052475, type: 2}
-    size: 5
+    size: 20
   - tag: RaftRowFour
     prefab: {fileID: 1605695254958190, guid: c5c8980aeadc9624782ae4fa50b72956, type: 2}
-    size: 5
+    size: 20
   - tag: RaftRow
     prefab: {fileID: 1329215789375124, guid: 8a1cad94169c7ba4980c3e1b5c459a9a, type: 2}
-    size: 5
+    size: 20
   - tag: Projectile
     prefab: {fileID: 1712841457375840, guid: f20843398402c0a4fa7597447dd6dfd0, type: 2}
     size: 5
@@ -1462,26 +1374,9 @@ MonoBehaviour:
   - {fileID: 1822348194236710, guid: 5766c663a07daa5418fafde1bd052475, type: 2}
   - {fileID: 1329215789375124, guid: 8a1cad94169c7ba4980c3e1b5c459a9a, type: 2}
   - {fileID: 1605695254958190, guid: c5c8980aeadc9624782ae4fa50b72956, type: 2}
-  rowSpawner: {fileID: 1137367494}
-  rowDespawner: {fileID: 151951006}
   startPlatform: {fileID: 63215188}
-  nrOfStartRows: 3
+  rowsToSpawn: 10
   distBetweenRows: 7
---- !u!114 &1192943531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1192943525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e18b6263650a31146a57166d5452d2af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeDuration: 0.5
-  shakeRandomness: 40
-  shakeVibrato: 10
-  shakeStrenght: {x: 0, y: 3, z: 0}
 --- !u!1 &1212238013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1795,36 +1690,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1289110753}
---- !u!1 &1339525978
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1074431861949160, guid: f30189a863e0b1040a8ed57a7efce19d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1339525979}
-  m_Layer: 0
-  m_Name: JumpDestination
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1339525979
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4337163466099172, guid: f30189a863e0b1040a8ed57a7efce19d,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1339525978}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.01745}
-  m_LocalScale: {x: 0.0037500006, y: 0.00375, z: 0.0037500006}
-  m_Children: []
-  m_Father: {fileID: 506330109}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1400535667
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,7 +2370,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 506330109}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1966977504
 GameObject:

@@ -11,16 +11,10 @@ public class RowHandler : MonoBehaviour
     private List<GameObject> rowTypes;
 
     [SerializeField]
-    private GameObject rowSpawner;
-
-    [SerializeField]
-    private GameObject rowDespawner;
-
-    [SerializeField]
     private GameObject startPlatform;
 
     [SerializeField]
-    private int nrOfStartRows;
+    private int rowsToSpawn;
 
     [SerializeField]
     private int distBetweenRows;
@@ -40,45 +34,115 @@ public class RowHandler : MonoBehaviour
         }
     }
 
+    public List<GameObject> Rows
+    {
+        get
+        {
+            return rows;
+        }
+
+        set
+        {
+            rows = value;
+        }
+    }
+
+    public int DistBetweenRows
+    {
+        get
+        {
+            return distBetweenRows;
+        }
+    }
+
     private void Start()
     {
         Instance = this;
-        //Spawn a set nr of rows when the game starts
-        Vector3 newPosition = startPlatform.transform.position + new Vector3(distBetweenRows, 0, 0);
-        for (int i = 0; i < nrOfStartRows; i++)
-        {
-            SpawnRow(newPosition);
-            newPosition.x += distBetweenRows;
-        }
+        PlayerControls.OnPlayerDeath += OnPlayerDeath;
+        
+        OnStart();
     }
 
-    private void SpawnRow(Vector3 position)
+
+    /// <summary>
+    /// Spawns a set nr of rows
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="nrOfSpawns"></param>
+    public void SpawnRows(Vector3 position, int nrOfSpawns)
     {
-        GameObject newRow;
-        int rnd = Random.Range(0, 4);
-        string rowPool = "";
-        switch (rnd)
+        GameObject newRowGO;
+
+        for (int i = 0; i < nrOfSpawns; i++)
         {
-            case 1:
-                rowPool = "LilyRow";
-                break;
-            case 2:
-                rowPool = "RaftRowFour";
-                break;
-            case 3:
-                rowPool = "RaftRow";
-                break;
-            default:
-                rowPool = "RaftRowFour";
-                break;
+            int rnd = Random.Range(0, 4);
+            string rowPool = "";
+
+            //String to find the right pool
+            switch (rnd)
+            {
+                case 1:
+                    rowPool = "LilyRow";
+                    break;
+                case 2:
+                    rowPool = "RaftRowFour";
+                    break;
+                case 3:
+                    rowPool = "RaftRow";
+                    break;
+                default:
+                    rowPool = "RaftRowFour";
+                    break;
+            }
+            newRowGO = PoolManager.Instance.SpawnObject(rowPool, position, Quaternion.identity);
+            position.x += distBetweenRows;
+            Row newRow = newRowGO.GetComponent<Row>();
+            SetRowDirection(newRow);
+            rows.Add(newRowGO);
         }
-        newRow = PoolManager.Instance.SpawnObject(rowPool, position, Quaternion.identity);
-        rows.Add(newRow);
     }
 
-    private void DespawnRow(GameObject row)
+    /// <summary>
+    /// Used to remove rows from the game
+    /// </summary>
+    /// <param name="row"></param>
+    public void DespawnRow(GameObject row)
     {
         rows.Remove(row);
         PoolManager.Instance.DespawnObject(row);
+    }
+
+    private void OnPlayerDeath()
+    {
+        ClearAllRows();
+        OnStart();
+    }
+
+    private void OnStart()
+    {
+        Vector3 newPosition = startPlatform.transform.position + new Vector3(distBetweenRows, 0, 0);
+        SpawnRows(newPosition, this.rowsToSpawn);
+    }
+
+    //Is suppose to decide which direction the rows platforms move
+    private void SetRowDirection(Row row)
+    {
+        row.MyDirection = (MoveDirection)Random.Range(0, 2);
+
+        foreach (Transform platform in row.MyChildren)
+        {
+            platform.GetComponent<Platform>().MyDirection = row.MyDirection;
+        }
+    }
+
+    /// <summary>
+    /// Disables all rows that are in the level
+    /// </summary>
+    private void ClearAllRows()
+    {
+        for (int i = rows.Count - 1; i >= 0; i--)
+        {
+            DespawnRow(rows[i]);
+        }
     }
 }

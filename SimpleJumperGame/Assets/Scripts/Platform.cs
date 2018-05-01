@@ -11,14 +11,6 @@ public class Platform : MonoBehaviour
     [SerializeField]
     private int scoreToAdd = 1;
 
-    private float shakeDuration;
-
-    private float shakeRandomness;
-
-    private int shakeVibrato;
-
-    private Vector3 shakeStrenght;
-
     private bool hitByPlayer;
 
     int minZvalue = -20;
@@ -40,7 +32,23 @@ public class Platform : MonoBehaviour
     [SerializeField]
     PlatformType mytype;
 
+    [SerializeField]
+    MoveDirection myDirection;
+
     PoolManager objectPool;
+
+    public MoveDirection MyDirection
+    {
+        get
+        {
+            return myDirection;
+        }
+
+        set
+        {
+            myDirection = value;
+        }
+    }
 
     public void Start()
     {
@@ -153,7 +161,7 @@ public class Platform : MonoBehaviour
     {
         if (other.GetComponent<PlayerControls>() && !hitByPlayer)
         {
-            ShakePlatform();
+            StartCoroutine(ShakePlatform());
             hitByPlayer = true;
             HighscoreController.Instance.Score++;
 
@@ -165,9 +173,10 @@ public class Platform : MonoBehaviour
         }
     }
 
-    private void ShakePlatform()
+    private IEnumerator ShakePlatform()
     {
-        this.transform.DOShakePosition(this.shakeDuration, this.shakeStrenght, this.shakeVibrato, this.shakeRandomness); 
+        this.transform.DOShakePosition(0.2f, new Vector3(0, 0.3f,0),10,40);
+        yield return new WaitForSeconds(0);
     }
 
     public IEnumerator Disappear()
@@ -191,13 +200,5 @@ public class Platform : MonoBehaviour
     private void OnPlayerDeath()
     {
         this.hitByPlayer = false;
-    }
-
-    public void SetShakeStats(float duration, Vector3 strenght, int vibrato, float randomness)
-    {
-        this.shakeDuration = duration;
-        this.shakeStrenght = strenght;
-        this.shakeVibrato = vibrato;
-        this.shakeRandomness = randomness;
     }
 }

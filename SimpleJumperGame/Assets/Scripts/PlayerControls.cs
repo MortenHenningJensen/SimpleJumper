@@ -12,15 +12,13 @@ public class PlayerControls : MonoBehaviour
 
 
     [SerializeField]
-    private GameObject jumpDestination;
-    [SerializeField]
-    private GameObject superJumpDestination;
-
-    [SerializeField]
     private WeaponController shooter;
 
     [SerializeField]
     private Ease jumpEase;
+
+    [SerializeField]
+    private float jumpDesYValue;
 
     [SerializeField]
     private float timeBeforeReset;
@@ -37,11 +35,12 @@ public class PlayerControls : MonoBehaviour
 
     private int objectIterator;
 
-    public Vector3 firstSpawn;
 
     PoolManager objectPool;
 
     public bool leftRight;
+
+    private bool playerDying;
 
 
 
@@ -52,7 +51,6 @@ public class PlayerControls : MonoBehaviour
         this.startPos = this.transform.position;
         myBody = GetComponent<Rigidbody>();
         jumpCounter = 0;
-        firstSpawn = new Vector3(28, 0, 0);
         objectPool = PoolManager.Instance;
         leftRight = false;
     }
@@ -63,12 +61,12 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !this.isJumping)
         {
             Jump();
-           // this.transform.DOJump(this.jumpDestination.transform.position, 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(OnJump).OnComplete(() => this.isJumping = false);
+            // this.transform.DOJump(this.jumpDestination.transform.position, 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(OnJump).OnComplete(() => this.isJumping = false);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl) && !this.isJumping)
         {
-            this.transform.DOJump(this.superJumpDestination.transform.position, 5, 0, 1f).SetEase(this.jumpEase).OnStart(() => this.isJumping = true).OnComplete(() => this.isJumping = false);
+            SuperJump();
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -76,7 +74,7 @@ public class PlayerControls : MonoBehaviour
             shooter.FireWeapon();
         }
 
-        if (this.transform.position.y <= -5)
+        if (this.transform.position.y <= -5 && !this.playerDying)
         {
             // SceneManager.LoadScene(0);
             StartCoroutine(KillPlayer());
@@ -86,14 +84,19 @@ public class PlayerControls : MonoBehaviour
 
     public void Jump()
     {
-        this.transform.DOJump(this.jumpDestination.transform.position, 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(OnJump);
+        
+        this.transform.DOJump(new Vector3(RowHandler.Instance.Rows[this.jumpCounter].transform.position.x, this.jumpDesYValue, this.transform.position.z), 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(() => { OnJump(); SpawnNewRows(1); });
+    }
+
+    private void SuperJump()
+    {
+        this.transform.DOJump(new Vector3(RowHandler.Instance.Rows[this.jumpCounter + 1].transform.position.x, this.jumpDesYValue, this.transform.position.z), 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(()=> { OnJump();  SpawnNewRows(2); });
     }
 
     public void OnJump()
     {
         this.isJumping = true;
         this.jumpCounter++;
-        SpawnNew();
 
         if (jumpCounter % 5 == 0)
         {
@@ -102,30 +105,11 @@ public class PlayerControls : MonoBehaviour
     }
 
 
-    public void SpawnNew()
+    public void SpawnNewRows(int nrOfRows)
     {
-        float spawnLocation = firstSpawn.x;
-        float nextspot = spawnLocation + (7 * jumpCounter);
-
-        //makes a random number, and the if statements below decides which row to spawn
-        int rnd = Random.Range(0, 101);
-
-        if (rnd < 10)
-        {
-            objectPool.SpawnObject("Turtle", new Vector3(nextspot, 0, 0), Quaternion.identity);
-
-        }
-        else if (rnd > 10 && rnd < 55)
-        {
-            objectPool.SpawnObject("Raft", new Vector3(nextspot, 0, 0), Quaternion.identity);
-
-        }
-        else if (rnd > 55)
-        {
-            objectPool.SpawnObject("Cube", new Vector3(nextspot, 0, 0), Quaternion.identity);
-
-        }
+        RowHandler.Instance.SpawnRows(RowHandler.Instance.Rows[RowHandler.Instance.Rows.Count - 1].transform.position + new Vector3(RowHandler.Instance.DistBetweenRows, 0, 0), nrOfRows);
     }
+
     Vector3 oldPos;
     Vector3 oldPos2;
     Vector3 myNewPos;
@@ -187,7 +171,7 @@ public class PlayerControls : MonoBehaviour
 
         }
 
-       
+
     }
 
     public void OnCollisionStay(Collision collision)
@@ -207,7 +191,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Wall"))
         {
-           StartCoroutine(KillPlayer());
+            StartCoroutine(KillPlayer());
         }
 
         if (other.gameObject.CompareTag("Enemy"))
@@ -215,11 +199,11 @@ public class PlayerControls : MonoBehaviour
             StartCoroutine(KillPlayer());
         }
     }
-    
+
 
     public IEnumerator KillPlayer()
     {
-
+        this.playerDying = true;
         //Set time before reset, to the lenght of death animation
         yield return new WaitForSeconds(this.timeBeforeReset);
         if (OnPlayerDeath != null)
@@ -228,6 +212,8 @@ public class PlayerControls : MonoBehaviour
         }
         this.transform.position = startPos;
         this.transform.parent = null;
+        this.playerDying = false;
+        this.jumpCounter = 0;
     }
 
 

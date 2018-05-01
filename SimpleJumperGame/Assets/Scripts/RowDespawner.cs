@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class RowDespawner : MonoBehaviour
 {
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Row"))
         {
-            PoolManager.Instance.DespawnObject(other.gameObject);
+            RowHandler.Instance.DespawnRow(other.gameObject);
         }
     }
-
 }
