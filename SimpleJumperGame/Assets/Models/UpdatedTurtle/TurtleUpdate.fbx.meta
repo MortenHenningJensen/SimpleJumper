@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b127893a8434af640b38ab9aaedfadfe
-timeCreated: 1525197531
+timeCreated: 1525272496
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -23,14 +23,13 @@ ModelImporter:
     400012: root 7
     400014: root 8
     400016: //RootNode
-    2100000: Material_149
-    2100002: Material_151
-    2100004: Material_153
-    2100006: Material_155
-    2100008: Material_157
-    2100010: Material_159
-    2100012: Material_161
-    2100014: Material_163
+    2100000: Material_107
+    2100002: Material_109
+    2100004: Material_111
+    2100006: Material_113
+    2100008: Material_115
+    2100010: Material_117
+    2100012: Material_98
     2300000: root 1
     2300002: root 2
     2300004: root 3
@@ -55,7 +54,42 @@ ModelImporter:
     4300010: root
     4300012: root
     4300014: root
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_107
+    second: {fileID: 2100000, guid: bce235329e0da244686c3092a1b68ef3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_109
+    second: {fileID: 2100000, guid: 152566dcfb5c39948a1cdf0f499bba97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_111
+    second: {fileID: 2100000, guid: 3e98fa0966904c74ebdb1983e21047d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_113
+    second: {fileID: 2100000, guid: 7dfcd67bb9b13e74193f84a784931e0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_115
+    second: {fileID: 2100000, guid: 5e22d5a38eb3354458a6c682835e70e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_117
+    second: {fileID: 2100000, guid: d2cbfce1b8031a542ab70d795fbec2f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_98
+    second: {fileID: 2100000, guid: b4e33fec4c654a44887faeacbb48f209, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -85,7 +119,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 100
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
