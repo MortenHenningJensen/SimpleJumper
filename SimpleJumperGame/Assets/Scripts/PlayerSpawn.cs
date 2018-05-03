@@ -18,6 +18,9 @@ public class PlayerSpawn : MonoBehaviour
             case 3:
                 myobjects[1].gameObject.SetActive(true);
                 break;
+            case 5:
+                myobjects[2].gameObject.SetActive(true);
+                break;
             default:
                 break;
         }
