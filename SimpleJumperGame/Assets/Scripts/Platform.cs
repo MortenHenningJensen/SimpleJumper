@@ -10,6 +10,7 @@ public class Platform : MonoBehaviour
 {
     [SerializeField]
     private int scoreToAdd = 1;
+    
 
     private bool hitByPlayer;
 
@@ -175,8 +176,10 @@ public class Platform : MonoBehaviour
 
     private IEnumerator ShakePlatform()
     {
-        this.transform.DOShakePosition(0.2f, new Vector3(0, 0.3f,0),10,40);
-        yield return new WaitForSeconds(0);
+        this.transform.Translate(new Vector3(0, -.1f, 0));
+        yield return new WaitForSeconds(.1f);
+        this.transform.Translate(new Vector3(0, .1f, 0));
+
     }
 
     public IEnumerator Disappear()
