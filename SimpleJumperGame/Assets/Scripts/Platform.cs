@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 
 
-enum PlatformType { Normal, Rotate, Timed, UpDown }
+public enum PlatformType { Normal, Rotate, Timed, UpDown, Static, Strafe, Sink }
 
 public class Platform : MonoBehaviour
 {

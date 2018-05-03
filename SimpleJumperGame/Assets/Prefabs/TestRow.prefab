@@ -2496,6 +2496,7 @@ MonoBehaviour:
   resetPos: 0
   direction: 0
   mytype: 0
+  myDirection: 0
 --- !u!114 &114199832031504716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2508,6 +2509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myChildren: []
+  myDirection: 0
 --- !u!114 &114245554301361274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2524,6 +2526,7 @@ MonoBehaviour:
   resetPos: 0
   direction: 0
   mytype: 0
+  myDirection: 0
 --- !u!114 &114261636098771356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2540,6 +2543,7 @@ MonoBehaviour:
   resetPos: 0
   direction: 0
   mytype: 0
+  myDirection: 0
 --- !u!114 &114808178143161264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2556,6 +2560,7 @@ MonoBehaviour:
   resetPos: 0
   direction: 0
   mytype: 0
+  myDirection: 0
 --- !u!114 &114817132598168508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2572,3 +2577,4 @@ MonoBehaviour:
   resetPos: 0
   direction: 0
   mytype: 0
+  myDirection: 0
