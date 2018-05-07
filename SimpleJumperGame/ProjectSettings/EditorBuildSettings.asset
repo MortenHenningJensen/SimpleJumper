@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MainMenu.unity
     guid: 6e14fe2fc7cc84c4f8586772a2c32395
-  - enabled: 0
-    path: Assets/Main.unity
-    guid: bfb75bb9668372d47a0701d657755f4a
   - enabled: 1
     path: Assets/WaterLevel.unity
     guid: a4a780c41c6f6aa40ac1a931aacd01a4

@@ -36,6 +36,10 @@ public class HighscoreController : MonoBehaviour
         }
     }
 
+    public Canvas scoreCanvas;
+
+    public Canvas endCanvas;
+
     private void Awake()
     {
         Instance = this;
@@ -50,8 +54,13 @@ public class HighscoreController : MonoBehaviour
 
     private void SetHighscore()
     {
+        EndGame.Instance.GameEnded();
+
         if (score > PlayerPrefs.GetInt("highscore"))
         {
+            EndGame.Instance.BetterScore = true;
+            EndGame.Instance.PreviousHighScore = PlayerPrefs.GetInt("highscore");
+
             PlayerPrefs.SetInt("highscore", score);
             UIController.Instance.Highscore.text = PlayerPrefs.GetInt("highscore").ToString();
         }
@@ -60,6 +69,8 @@ public class HighscoreController : MonoBehaviour
     private void OnPlayerDeath()
     {
         SetHighscore();
+        scoreCanvas.enabled = false;
+        endCanvas.enabled = true;
         this.score = 0;
     }
 }

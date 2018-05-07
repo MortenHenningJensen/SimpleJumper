@@ -108,6 +108,8 @@ public class CharacterSelecter : MonoBehaviour
 
         coinImg.gameObject.SetActive(true);
 
+        selectChar.GetComponentInChildren<Text>().text = "Select Character";
+
         if (obj.transform.GetChild(0).GetComponent<NewCharDesc>().Unlocked == 0)
         {
             selectChar.gameObject.SetActive(false);
@@ -116,6 +118,10 @@ public class CharacterSelecter : MonoBehaviour
         else
         {
             selectChar.gameObject.SetActive(true);
+            if (PlayerPrefs.GetInt("SelectedCharacter") == charId)
+            {
+                selectChar.GetComponentInChildren<Text>().text = "Selected Character";
+            }
             unlockChar.gameObject.SetActive(false);
         }
 

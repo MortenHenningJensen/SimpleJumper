@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerSpawn : MonoBehaviour
 {
-
     [SerializeField]
     GameObject[] myobjects;
 
@@ -15,8 +14,14 @@ public class PlayerSpawn : MonoBehaviour
             case 0:
                 myobjects[0].gameObject.SetActive(true);
                 break;
+            case 1:
+                break;
+            case 2:
+                break;
             case 3:
                 myobjects[1].gameObject.SetActive(true);
+                break;
+            case 4:
                 break;
             case 5:
                 myobjects[2].gameObject.SetActive(true);
@@ -24,11 +29,5 @@ public class PlayerSpawn : MonoBehaviour
             default:
                 break;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
