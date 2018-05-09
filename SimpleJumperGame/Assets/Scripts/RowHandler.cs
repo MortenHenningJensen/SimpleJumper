@@ -75,7 +75,7 @@ public class RowHandler : MonoBehaviour
 
         for (int i = 0; i < nrOfSpawns; i++)
         {
-            int rnd = Random.Range(0, 4);
+            int rnd = Random.Range(0, 5);
             string rowPool = "";
 
             //String to find the right pool
@@ -90,6 +90,9 @@ public class RowHandler : MonoBehaviour
                 case 3:
                     rowPool = "RaftRow";
                     break;
+                case 4:
+                    rowPool = "TurtleRow";
+                    break;
                 default:
                     rowPool = "RaftRowFour";
                     break;
@@ -97,7 +100,6 @@ public class RowHandler : MonoBehaviour
             newRowGO = PoolManager.Instance.SpawnObject(rowPool, position, Quaternion.identity);
             position.x += distBetweenRows;
             Row newRow = newRowGO.GetComponent<Row>();
-            SetRowDirection(newRow);
             rows.Add(newRowGO);
         }
     }
@@ -122,17 +124,6 @@ public class RowHandler : MonoBehaviour
     {
         Vector3 newPosition = startPlatform.transform.position + new Vector3(distBetweenRows, 0, 0);
         SpawnRows(newPosition, this.rowsToSpawn);
-    }
-
-    //Is suppose to decide which direction the rows platforms move
-    private void SetRowDirection(Row row)
-    {
-        row.MyDirection = (MoveDirection)Random.Range(0, 2);
-
-        foreach (Transform platform in row.MyChildren)
-        {
-            platform.GetComponent<Platform>().MyDirection = row.MyDirection;
-        }
     }
 
     /// <summary>

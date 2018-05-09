@@ -3,118 +3,67 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-
+public enum PlatformType { Turtle, WaterLilly, Raft }
 
 public class PlatformController : MonoBehaviour
 {
-    [SerializeField]
-    private PlatformType myType;
+    private bool hitByPlayer;
 
-    [SerializeField]
-    private float sinkDelay;
+    bool coinPlatform;
 
-    [SerializeField]
-    private float riseDelay;
-
-    public MoveDirection myDirection;
-
-    public float moveSpeed;
-
-    private bool hit;
-
-    private int minZvalue = -20;
-    private int maxZvalue = 20;
-
-    private int resetPos;
+    PoolManager objectPool;
 
 
-
-    // Use this for initialization
-    void Start()
+    private void Start()
     {
-        Setup();
+        objectPool = PoolManager.Instance;
+
+        PlayerControls.OnPlayerDeath += OnPlayerDeath;
+
+        if (Random.Range(0, 101) > 97)
+        {
+            coinPlatform = true;
+        }
+
+        StartCoroutine(SpawnCoin());
     }
 
-
-    void Update()
+    IEnumerator SpawnCoin()
     {
-        if (myType == PlatformType.Static)
+        yield return new WaitForSeconds(1);
+
+        if (coinPlatform == true)
         {
-            return;
-        }
-        if (myType == PlatformType.Strafe)
-        {
-            if (myDirection == MoveDirection.Right)
-            {
-                MoveRight();
-            }
-            if (myDirection == MoveDirection.Left)
-            {
-                MoveLeft();
-            }
+            GameObject go = objectPool.SpawnObject("Coin", new Vector3(this.transform.position.x, this.transform.position.y + 1f, this.transform.position.z), Quaternion.identity);
+            go.transform.parent = this.transform;
         }
     }
 
-    private void MoveLeft()
+    public virtual void HitByPlayer()
     {
-        gameObject.transform.Translate(new Vector3(0, 0, moveSpeed) * Time.deltaTime);
-
-        if (gameObject.transform.position.z >= maxZvalue)
-        {
-            gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, resetPos);
-        }
+        HighscoreController.Instance.Score++;
     }
 
-    private void MoveRight()
+    private IEnumerator ShakePlatform()
     {
-        gameObject.transform.Translate(new Vector3(0, 0, -moveSpeed) * Time.deltaTime);
-
-        if (gameObject.transform.position.z <= minZvalue)
-        {
-            gameObject.transform.position = new Vector3(transform.position.x, transform.position.y, resetPos);
-        }
-    }
-
-    private void Sink()
-    {
-        gameObject.transform.DOLocalMoveY(-0.854f, 1).SetDelay(this.sinkDelay).OnComplete(Rise);
-    }
-
-    private void Rise()
-    {
-        gameObject.transform.DOLocalMoveY(0.019f, 1).SetDelay(this.riseDelay).OnComplete(Sink);
-
-    }
-
-    private void Setup()
-    {
-        switch (myType)
-        {
-            case PlatformType.Strafe:
-                if (myDirection == MoveDirection.Left)
-                {
-                    this.resetPos = -20;
-                }
-                if (myDirection == MoveDirection.Right)
-                {
-                    this.resetPos = 20;
-                }
-                break;
-            case PlatformType.Sink:
-                Sink();
-                break;
-            default:
-                break;
-        }
+        this.transform.Translate(new Vector3(0, -.1f, 0));
+        yield return new WaitForSeconds(.1f);
+        this.transform.Translate(new Vector3(0, .1f, 0));
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.GetComponent<PlayerControls>() && !hitByPlayer)
+        {
+            StartCoroutine(ShakePlatform());
+            hitByPlayer = true;
+            HighscoreController.Instance.Score++;
 
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnPlayerDeath()
     {
-
+        this.hitByPlayer = false;
     }
 }

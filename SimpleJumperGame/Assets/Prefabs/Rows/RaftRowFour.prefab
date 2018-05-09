@@ -156,8 +156,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4248650363286296}
   - component: {fileID: 65847925030188684}
-  - component: {fileID: 114037187141853778}
   - component: {fileID: 65205046338278108}
+  - component: {fileID: 114306986352976880}
   m_Layer: 0
   m_Name: Raft
   m_TagString: MovingPlatform
@@ -208,8 +208,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4724654005769774}
   - component: {fileID: 65783932728031924}
-  - component: {fileID: 114933680950042628}
   - component: {fileID: 65183819536384846}
+  - component: {fileID: 114817638220992880}
   m_Layer: 0
   m_Name: Raft (1)
   m_TagString: MovingPlatform
@@ -497,8 +497,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4615633502399810}
   - component: {fileID: 65668273629948584}
-  - component: {fileID: 114296236655349852}
   - component: {fileID: 65376955870463140}
+  - component: {fileID: 114142139159163150}
   m_Layer: 0
   m_Name: Raft (2)
   m_TagString: MovingPlatform
@@ -515,8 +515,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4710060441554692}
   - component: {fileID: 65884558134325208}
-  - component: {fileID: 114012164502443248}
   - component: {fileID: 65929059839945478}
+  - component: {fileID: 114105149553352026}
   m_Layer: 0
   m_Name: Raft (3)
   m_TagString: MovingPlatform
@@ -2856,7 +2856,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.39, y: 0.1, z: 1.88}
   m_Center: {x: 0, y: 0.2, z: -0.54}
---- !u!114 &114012164502443248
+--- !u!114 &114105149553352026
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2864,33 +2864,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1739339481767996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e09c738615d6644abc22405e6a1cac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreToAdd: 1
-  movespeed: 0
-  resetPos: 0
-  direction: 0
-  mytype: 0
-  myDirection: 0
---- !u!114 &114037187141853778
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1236972219051872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreToAdd: 1
-  movespeed: 0
-  resetPos: 0
-  direction: 0
-  mytype: 0
-  myDirection: 0
---- !u!114 &114296236655349852
+  movespeed: 4
+  moveRight: 0
+--- !u!114 &114142139159163150
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2898,15 +2877,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1647413374464536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e09c738615d6644abc22405e6a1cac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreToAdd: 1
-  movespeed: 0
-  resetPos: 0
-  direction: 0
-  mytype: 0
-  myDirection: 0
+  movespeed: 4
+  moveRight: 0
+--- !u!114 &114306986352976880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1236972219051872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e09c738615d6644abc22405e6a1cac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movespeed: 4
+  moveRight: 0
 --- !u!114 &114478396863188552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2920,7 +2908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myChildren: []
   myDirection: 0
---- !u!114 &114933680950042628
+--- !u!114 &114817638220992880
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2928,12 +2916,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1278859875956602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e09c738615d6644abc22405e6a1cac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreToAdd: 1
-  movespeed: 0
-  resetPos: 0
-  direction: 0
-  mytype: 0
-  myDirection: 0
+  movespeed: 4
+  moveRight: 0

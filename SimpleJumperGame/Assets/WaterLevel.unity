@@ -330,7 +330,7 @@ Transform:
   m_LocalScale: {x: 3.4, y: 18.3, z: 60.06}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &151951011
 MonoBehaviour:
@@ -839,7 +839,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4186229412815618, guid: 70635ff3a91b66d4988fc83170299d8b, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70635ff3a91b66d4988fc83170299d8b, type: 2}
@@ -1161,6 +1161,9 @@ MonoBehaviour:
   - tag: Coin
     prefab: {fileID: 1025244886820590, guid: 0551458d24c01964f9e4660e679da597, type: 2}
     size: 20
+  - tag: TurtleRow
+    prefab: {fileID: 1122588255898920, guid: d50ad0a9450798342b54c533e055c702, type: 2}
+    size: 20
 --- !u!4 &1192943529
 Transform:
   m_ObjectHideFlags: 0
@@ -1191,7 +1194,7 @@ MonoBehaviour:
   - {fileID: 1605695254958190, guid: c5c8980aeadc9624782ae4fa50b72956, type: 2}
   startPlatform: {fileID: 1111921036}
   rowsToSpawn: 10
-  distBetweenRows: 7
+  distBetweenRows: 9
 --- !u!1 &1193660124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,7 +1306,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44750ee9e1044a24c85a71567fa186bb, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 44750ee9e1044a24c85a71567fa186bb, type: 3}
       propertyPath: m_LocalScale.x
@@ -2590,7 +2593,7 @@ Transform:
   - {fileID: 1155290724}
   - {fileID: 457069677}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2032563731
 Prefab:

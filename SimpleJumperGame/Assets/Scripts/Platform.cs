@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-
-public enum PlatformType { Normal, Rotate, Timed, UpDown, Static, Strafe, Sink }
-
 public class Platform : MonoBehaviour
 {
     [SerializeField]
@@ -69,53 +66,52 @@ public class Platform : MonoBehaviour
             else
                 movespeed = 2;
         }
-        StartCoroutine(SpawnCoin());
     }
 
     public void Update()
     {
         //Used to decide the movementspeed of the platform, as how to move with the different types
-        if (mytype == PlatformType.Timed)
-        {
-            if (sinking)
-            {
-                gameObject.transform.Translate(new Vector3(0, -2, movespeed) * Time.deltaTime);
+        //if (mytype == PlatformType.Timed)
+        //{
+        //    if (sinking)
+        //    {
+        //        gameObject.transform.Translate(new Vector3(0, -2, movespeed) * Time.deltaTime);
 
-            }
-            else
-            {
-                gameObject.transform.Translate(new Vector3(0, 0, movespeed) * Time.deltaTime);
-            }
+        //    }
+        //    else
+        //    {
+        //        gameObject.transform.Translate(new Vector3(0, 0, movespeed) * Time.deltaTime);
+        //    }
 
-        }
-        else if (mytype == PlatformType.UpDown)
-        {
-            if (!updown)
-            {
-                gameObject.transform.Translate(new Vector3(0, -1, movespeed) * Time.deltaTime);
-            }
-            else
-            {
-                gameObject.transform.Translate(new Vector3(0, 1, movespeed) * Time.deltaTime);
-            }
+        //}
+        //else if (mytype == PlatformType.UpDown)
+        //{
+        //    if (!updown)
+        //    {
+        //        gameObject.transform.Translate(new Vector3(0, -1, movespeed) * Time.deltaTime);
+        //    }
+        //    else
+        //    {
+        //        gameObject.transform.Translate(new Vector3(0, 1, movespeed) * Time.deltaTime);
+        //    }
 
-        }
-        else if (mytype == PlatformType.Rotate)
-        {
-            float step = movespeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, transform.position.y, resetPos * 2), step);
-        }
-        else
-        {
-            gameObject.transform.Translate(new Vector3(0, 0, movespeed) * Time.deltaTime);
+        //}
+        //else if (mytype == PlatformType.Rotate)
+        //{
+        //    float step = movespeed * Time.deltaTime;
+        //    transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, transform.position.y, resetPos * 2), step);
+        //}
+        //else
+        //{
+        //    gameObject.transform.Translate(new Vector3(0, 0, movespeed) * Time.deltaTime);
 
-        }
+        //}
 
-        //Virker ikke, kan ikke få den til at rotate og bevæge sig på samme tid
-        if (mytype == PlatformType.Rotate)
-        {
-            this.transform.DORotate(new Vector3(0, 360, 0), 1f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Incremental);
-        }
+        ////Virker ikke, kan ikke få den til at rotate og bevæge sig på samme tid
+        //if (mytype == PlatformType.Rotate)
+        //{
+        //    this.transform.DORotate(new Vector3(0, 360, 0), 1f, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Incremental);
+        //}
 
 
 
@@ -158,47 +154,7 @@ public class Platform : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<PlayerControls>() && !hitByPlayer)
-        {
-            StartCoroutine(ShakePlatform());
-            hitByPlayer = true;
-            HighscoreController.Instance.Score++;
-
-            if (mytype == PlatformType.Timed)
-            {
-                StartCoroutine(Disappear());
-            }
-
-        }
-    }
-
-    private IEnumerator ShakePlatform()
-    {
-        this.transform.Translate(new Vector3(0, -.1f, 0));
-        yield return new WaitForSeconds(.1f);
-        this.transform.Translate(new Vector3(0, .1f, 0));
-
-    }
-
-    public IEnumerator Disappear()
-    {
-        yield return new WaitForSeconds(2);
-        //Play animation for animal to disappear
-        sinking = true;
-    }
-
-    IEnumerator SpawnCoin()
-    {
-        yield return new WaitForSeconds(1);
-
-        if (coinPlatform == true)
-        {
-            GameObject go = objectPool.SpawnObject("Coin", new Vector3(this.transform.position.x, this.transform.position.y + 1f, this.transform.position.z), Quaternion.identity);
-            go.transform.parent = this.transform;
-        }
-    }
+    
 
     private void OnPlayerDeath()
     {

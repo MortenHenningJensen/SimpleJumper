@@ -46,15 +46,6 @@ public class Row : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        foreach (Transform child in transform)
-        {
-            //Sets the direction of children platforms to be the same as the row
-            child.GetComponent<Platform>().MyDirection = this.myDirection;
-        }
-    }
-
 
     // Use this for initialization
     void Start()
@@ -64,6 +55,18 @@ public class Row : MonoBehaviour
         {
             myChildren.Add(child);
             child.gameObject.SetActive(true);
+        }
+
+        if (myChildren[0].GetComponent<RaftController>() != null)
+        {
+            if (Random.Range(0, 100) > 50)
+            {
+                foreach (Transform child in myChildren)
+                {
+                    RaftController raft = child.GetComponent<RaftController>();
+                    raft.moveRight = true;
+                }
+            }
         }
 
 
@@ -134,19 +137,13 @@ public class Row : MonoBehaviour
             //decides stuff for each of the rows, as how to scale, and how to move and behave
             if (newMovespeed < 0)
             {
-                item.GetComponent<Platform>().direction = false;
-                item.GetComponent<Platform>().resetPos = 20;
                 item.localScale = new Vector3(newSizeX, 2, newSizeZ);
             }
             else
             {
-                item.GetComponent<Platform>().direction = true;
-                item.GetComponent<Platform>().resetPos = -20;
                 item.localScale = new Vector3(newSizeX, 2, newSizeZ);
             }
 
-            //sets the movespeed of the platform
-            item.GetComponent<Platform>().movespeed = (int)newMovespeed;
         }
     }
 }

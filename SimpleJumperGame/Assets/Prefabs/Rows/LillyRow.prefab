@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4008518017615100}
   - component: {fileID: 65784367889234564}
-  - component: {fileID: 114394517069075876}
   - component: {fileID: 65047262934340424}
+  - component: {fileID: 114370215441326058}
   m_Layer: 0
   m_Name: Waterlilly
   m_TagString: MovingPlatform
@@ -38,8 +38,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4893385230747632}
   - component: {fileID: 65953464408801778}
-  - component: {fileID: 114185114559023996}
   - component: {fileID: 65494899822234232}
+  - component: {fileID: 114114696254087286}
   m_Layer: 0
   m_Name: Waterlilly (1)
   m_TagString: MovingPlatform
@@ -73,8 +73,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4104027028935272}
   - component: {fileID: 65724029789680552}
-  - component: {fileID: 114545957659298874}
   - component: {fileID: 65843048600397704}
+  - component: {fileID: 114915481017675614}
   m_Layer: 0
   m_Name: Waterlilly (2)
   m_TagString: MovingPlatform
@@ -153,7 +153,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822348194236710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.17904, y: -2.3, z: 1.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4008518017615100}
@@ -424,7 +424,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.1, z: 0.5}
   m_Center: {x: 0, y: -0.1, z: 0}
---- !u!114 &114185114559023996
+--- !u!114 &114114696254087286
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -432,16 +432,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1151260570152084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
+  m_Script: {fileID: 11500000, guid: 36676ec42a6b70e48b4d4434cffdf1b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreToAdd: 1
-  movespeed: 0
-  resetPos: 0
-  direction: 0
-  mytype: 0
-  myDirection: 0
---- !u!114 &114394517069075876
+  sinkLevel: -9
+  sinkSpeed: 2
+  riseSpeed: 1
+--- !u!114 &114370215441326058
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -449,32 +446,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1107079339985760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
+  m_Script: {fileID: 11500000, guid: 36676ec42a6b70e48b4d4434cffdf1b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreToAdd: 1
-  movespeed: 0
-  resetPos: 0
-  direction: 0
-  mytype: 0
-  myDirection: 0
---- !u!114 &114545957659298874
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1381304327426936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb869fb3d7000704da71188efb50c609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreToAdd: 1
-  movespeed: 0
-  resetPos: 0
-  direction: 0
-  mytype: 0
-  myDirection: 0
+  sinkLevel: -9
+  sinkSpeed: 2
+  riseSpeed: 1
 --- !u!114 &114776031491069866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -488,3 +465,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myChildren: []
   myDirection: 0
+--- !u!114 &114915481017675614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381304327426936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36676ec42a6b70e48b4d4434cffdf1b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sinkLevel: -9
+  sinkSpeed: 2
+  riseSpeed: 1
