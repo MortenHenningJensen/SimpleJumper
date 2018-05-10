@@ -69,10 +69,10 @@ public class PlayerControls : MonoBehaviour
             SuperJump();
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            shooter.FireWeapon();
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    shooter.FireWeapon();
+        //}
 
         if (this.transform.position.y <= -5 && !this.playerDying)
         {
@@ -84,7 +84,7 @@ public class PlayerControls : MonoBehaviour
 
     public void Jump()
     {
-        
+        this.transform.parent = null;
         this.transform.DOJump(new Vector3(RowHandler.Instance.Rows[this.jumpCounter].transform.position.x, this.jumpDesYValue, this.transform.position.z), 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(() => { OnJump(); SpawnNewRows(1); });
     }
 
@@ -214,6 +214,7 @@ public class PlayerControls : MonoBehaviour
         this.transform.parent = null;
         this.playerDying = false;
         this.jumpCounter = 0;
+        Debug.Log("End of player death");
     }
 
 

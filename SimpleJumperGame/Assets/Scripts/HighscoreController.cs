@@ -36,12 +36,15 @@ public class HighscoreController : MonoBehaviour
         }
     }
 
-    public Canvas scoreCanvas;
+    public GameObject scoreCanvas;
 
-    public Canvas endCanvas;
+    public GameObject endCanvas;
 
     private void Awake()
     {
+        scoreCanvas.SetActive(true);
+        endCanvas.SetActive(false);
+
         Instance = this;
         PlayerControls.OnPlayerDeath += OnPlayerDeath;
     }
@@ -69,8 +72,11 @@ public class HighscoreController : MonoBehaviour
     private void OnPlayerDeath()
     {
         SetHighscore();
-        scoreCanvas.enabled = false;
-        endCanvas.enabled = true;
+
+        scoreCanvas.SetActive(false);
+        endCanvas.SetActive(true);
+
+
         this.score = 0;
     }
 }
