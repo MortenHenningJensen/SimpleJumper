@@ -80,4 +80,6 @@ public class EndGame : MonoBehaviour {
 
         SceneManager.LoadScene(0);
     }
+
+
 }
