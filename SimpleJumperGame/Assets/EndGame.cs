@@ -71,7 +71,9 @@ public class EndGame : MonoBehaviour {
     {
         Debug.Log("TEST PLAY");
 
-        SceneManager.LoadScene(1);
+        PlayerControls.Instance.gameEnded = false;
+        HighscoreController.Instance.endCanvas.SetActive(false);
+       // SceneManager.LoadScene(1);
     }
 
     public void BackToMenu()

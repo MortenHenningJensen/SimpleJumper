@@ -57,15 +57,6 @@ public class Platform : MonoBehaviour
             coinPlatform = true;
         }
         PlayerControls.OnPlayerDeath += OnPlayerDeath;
-        if (movespeed == 0 && !transform.name.Contains("Turtle"))
-        {
-            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().leftRight)
-            {
-                movespeed = -2;
-            }
-            else
-                movespeed = 2;
-        }
     }
 
     public void Update()

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum MoveDirection { Left, Right }
+
 public class RowHandler : MonoBehaviour
 {
     public static RowHandler Instance;
@@ -55,11 +57,28 @@ public class RowHandler : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private MoveDirection myDirection;
+
+    public MoveDirection MyDirection
+    {
+        get
+        {
+            return myDirection;
+        }
+
+        set
+        {
+            myDirection = value;
+        }
+    }
+
     private void Start()
     {
         Instance = this;
         PlayerControls.OnPlayerDeath += OnPlayerDeath;
-        
+        myDirection = MoveDirection.Left;
+
         OnStart();
     }
 
@@ -120,7 +139,7 @@ public class RowHandler : MonoBehaviour
         OnStart();
     }
 
-    private void OnStart()
+    public void OnStart()
     {
         Vector3 newPosition = startPlatform.transform.position + new Vector3(distBetweenRows, 0, 0);
         SpawnRows(newPosition, this.rowsToSpawn);

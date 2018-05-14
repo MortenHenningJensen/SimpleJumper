@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MoveDirection { Left, Right }
 public class Row : MonoBehaviour
 {
     [SerializeField]
@@ -17,9 +16,6 @@ public class Row : MonoBehaviour
     float difficulty;
     Vector3 myScale;
 
-    [SerializeField]
-    private MoveDirection myDirection;
-
     public List<Transform> MyChildren
     {
         get
@@ -30,19 +26,6 @@ public class Row : MonoBehaviour
         set
         {
             myChildren = value;
-        }
-    }
-
-    public MoveDirection MyDirection
-    {
-        get
-        {
-            return myDirection;
-        }
-
-        set
-        {
-            myDirection = value;
         }
     }
 
@@ -99,30 +82,16 @@ public class Row : MonoBehaviour
         myScale.z -= (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().jumpCounter / 50);
 
         //Checks the direction of the last row we made, and makes the new one run the other way
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().leftRight)
+        if (RowHandler.Instance.MyDirection == MoveDirection.Left)
         {
             newMovespeed = Random.Range(5, 10 * (difficulty + 1));
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().leftRight = false;
+            RowHandler.Instance.MyDirection = MoveDirection.Right;
         }
         else
         {
             newMovespeed = Random.Range(-5, -10 * (difficulty + 1));
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().leftRight = true;
+            RowHandler.Instance.MyDirection = MoveDirection.Left;
         }
-
-        //Safety, dosent really work, might be the way the random value us calculated above
-        if (newMovespeed == 0)
-        {
-            if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().leftRight)
-            {
-                newMovespeed = -2;
-            }
-            else
-                newMovespeed = 2;
-        }
-
-
-        // newMovespeed = Random.Range(-10 * (difficulty + 1), 10 * difficulty);
 
         //Gets the current size of the items
         platformsizeZ = myChildren[0].localScale.z;

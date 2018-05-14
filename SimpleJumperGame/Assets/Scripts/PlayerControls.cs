@@ -35,13 +35,13 @@ public class PlayerControls : MonoBehaviour
 
     private int objectIterator;
 
-
     PoolManager objectPool;
-
-    public bool leftRight;
 
     private bool playerDying;
 
+    public bool gameEnded;
+
+    private Vector3[] sideStartPos;
 
 
     // Use this for initialization
@@ -52,12 +52,18 @@ public class PlayerControls : MonoBehaviour
         myBody = GetComponent<Rigidbody>();
         jumpCounter = 0;
         objectPool = PoolManager.Instance;
-        leftRight = false;
+        sideStartPos = new Vector3[10];
+        SideStartPos();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameEnded)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && !this.isJumping)
         {
             Jump();
@@ -162,6 +168,23 @@ public class PlayerControls : MonoBehaviour
 
     }
 
+    public void SideStartPos()
+    {
+        for (int i = 0; i < sideObjects.Length; i++)
+        {
+            sideStartPos[i] = sideObjects[i].transform.position;
+        }
+    }
+
+    public void ResetSides()
+    {
+        for (int i = 0; i < sideObjects.Length; i++)
+        {
+            sideObjects[i].transform.position = sideStartPos[i];
+        }
+        objectIterator = 0;
+    }
+
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "MovingPlatform")
@@ -210,11 +233,12 @@ public class PlayerControls : MonoBehaviour
         {
             OnPlayerDeath();
         }
+        ResetSides();
         this.transform.position = startPos;
         this.transform.parent = null;
         this.playerDying = false;
         this.jumpCounter = 0;
-        Debug.Log("End of player death");
+        this.gameEnded = true;
     }
 
 
