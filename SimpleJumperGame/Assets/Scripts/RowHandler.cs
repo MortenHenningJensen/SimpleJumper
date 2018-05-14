@@ -92,10 +92,32 @@ public class RowHandler : MonoBehaviour
     {
         GameObject newRowGO;
 
+        //string prevRow = "";
+
         for (int i = 0; i < nrOfSpawns; i++)
         {
             int rnd = Random.Range(0, 5);
             string rowPool = "";
+
+
+            //switch (prevRow)
+            //{
+            //    case "LilyRow":
+            //          rowPol = NewRowName(1);
+            //        break;
+            //    case "RaftRowFour":
+            //          rowPol = NewRowName(2);
+            //        break;
+            //    case "RaftRow":
+            //          rowPol = NewRowName(3);
+            //        break;
+            //    case "TurleRow":
+            //          rowPol = NewRowName(4);
+            //        break;
+            //    case "":
+            //          rowPol = NewRowName(5);
+            //        break;
+            //}
 
             //String to find the right pool
             switch (rnd)
@@ -120,8 +142,129 @@ public class RowHandler : MonoBehaviour
             position.x += distBetweenRows;
             Row newRow = newRowGO.GetComponent<Row>();
             rows.Add(newRowGO);
+            //prevRow = rowPool;
         }
     }
+
+    private string NewRowName(int method)
+    {
+        string test = "";
+        int rnd = Random.Range(0, 5);
+
+        if (method == 1)
+        {
+            switch (rnd)
+            {
+                case 1:
+                    test = "RaftRowFour";
+                    break;
+                case 2:
+                    test = "RaftRowFour";
+                    break;
+                case 3:
+                    test = "RaftRow";
+                    break;
+                case 4:
+                    test = "TurtleRow";
+                    break;
+                case 5:
+                    test = "RaftRowFour";
+                    break;
+            }
+
+        }
+        else if (method == 2)
+        {
+            switch (rnd)
+            {
+                case 1:
+                    test = "LilyRow";
+                    break;
+                case 2:
+                    test = "RaftRowFour";
+                    break;
+                case 3:
+                    test = "RaftRow";
+                    break;
+                case 4:
+                    test = "TurtleRow";
+                    break;
+                case 5:
+                    test = "RaftRowFour";
+                    break;
+            }
+
+        }
+        else if (method == 3)
+        {
+            switch (rnd)
+            {
+                case 1:
+                    test = "LilyRow";
+                    break;
+                case 2:
+                    test = "RaftRowFour";
+                    break;
+                case 3:
+                    test = "RaftRow";
+                    break;
+                case 4:
+                    test = "TurtleRow";
+                    break;
+                case 5:
+                    test = "RaftRowFour";
+                    break;
+            }
+
+        }
+        else if (method == 4)
+        {
+            switch (rnd)
+            {
+                case 1:
+                    test = "RaftRow";
+                    break;
+                case 2:
+                    test = "RaftRowFour";
+                    break;
+                case 3:
+                    test = "RaftRow";
+                    break;
+                case 4:
+                    test = "RaftRowFour";
+                    break;
+                case 5:
+                    test = "RaftRowFour";
+                    break;
+            }
+
+        }
+        else if (method == 5)
+        {
+            //String to find the right pool
+            switch (rnd)
+            {
+                case 1:
+                    test = "LilyRow";
+                    break;
+                case 2:
+                    test = "RaftRowFour";
+                    break;
+                case 3:
+                    test = "RaftRow";
+                    break;
+                case 4:
+                    test = "TurtleRow";
+                    break;
+                case 5:
+                    test = "RaftRowFour";
+                    break;
+            }
+        }
+
+        return test;
+    }
+
 
     /// <summary>
     /// Used to remove rows from the game
