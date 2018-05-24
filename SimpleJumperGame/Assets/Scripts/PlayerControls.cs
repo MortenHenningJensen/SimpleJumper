@@ -43,6 +43,10 @@ public class PlayerControls : MonoBehaviour
 
     private Vector3[] sideStartPos;
 
+    private GameObject goToFollow;
+
+    private Vector3 followOffset;
+
 
     // Use this for initialization
     void Start()
@@ -86,6 +90,8 @@ public class PlayerControls : MonoBehaviour
             StartCoroutine(KillPlayer());
         }
 
+        FollowGameObject();
+
     }
 
     public void Jump()
@@ -96,11 +102,12 @@ public class PlayerControls : MonoBehaviour
 
     private void SuperJump()
     {
-        this.transform.DOJump(new Vector3(RowHandler.Instance.Rows[this.jumpCounter + 1].transform.position.x, this.jumpDesYValue, this.transform.position.z), 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(()=> { OnJump();  SpawnNewRows(2); });
+        this.transform.DOJump(new Vector3(RowHandler.Instance.Rows[this.jumpCounter + 1].transform.position.x, this.jumpDesYValue, this.transform.position.z), 2, 0, 0.8f).SetEase(this.jumpEase).OnStart(() => { OnJump(); SpawnNewRows(2); });
     }
 
     public void OnJump()
     {
+        UnsetGameObjectToFollow();
         this.isJumping = true;
         this.jumpCounter++;
 
@@ -185,13 +192,35 @@ public class PlayerControls : MonoBehaviour
         objectIterator = 0;
     }
 
+    private void FollowGameObject()
+    {
+        if (this.goToFollow != null)
+        {
+            this.transform.position = this.goToFollow.transform.position + followOffset;
+        }
+    }
+
+    //To avoid scalling, when tweens are affecting the transform of the object to follow, which fucks up the player
+    private void SetGOToFollow(GameObject newFollow)
+    {
+        this.followOffset = this.transform.position - newFollow.transform.position;
+        this.goToFollow = newFollow;
+    }
+
+    private void UnsetGameObjectToFollow()
+    {
+        this.goToFollow = null;
+    }
+
+
+
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "MovingPlatform")
         {
             //Might want to change so you can only jump again if you hit another platform, and not at the end of the animation
             isJumping = false;
-
+            SetGOToFollow(collision.gameObject);
         }
 
 
@@ -199,15 +228,15 @@ public class PlayerControls : MonoBehaviour
 
     public void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "MovingPlatform")
-        {
-            transform.parent = collision.transform;
+        //if (collision.gameObject.tag == "MovingPlatform")
+        //{
+        //    transform.parent = collision.transform;
 
-        }
-        else
-        {
-            transform.parent = null;
-        }
+        //}
+        //else
+        //{
+        //    transform.parent = null;
+        //}
     }
 
     private void OnTriggerEnter(Collider other)

@@ -647,7 +647,7 @@ MonoBehaviour:
   - {fileID: 1884749222}
   - {fileID: 715680991}
   - {fileID: 952517529}
-  leftRight: 0
+  gameEnded: 0
 --- !u!65 &506330107
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1245,6 +1245,7 @@ MonoBehaviour:
   startPlatform: {fileID: 1111921036}
   rowsToSpawn: 10
   distBetweenRows: 9
+  myDirection: 0
 --- !u!1 &1193660124
 GameObject:
   m_ObjectHideFlags: 0

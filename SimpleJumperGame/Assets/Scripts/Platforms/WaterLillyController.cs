@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class WaterLillyController : PlatformController
 {
@@ -21,48 +22,33 @@ public class WaterLillyController : PlatformController
     {
         this.normalYLevel = this.transform.position.y;
     }
+    //Work in progress...
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.CompareTag("Player"))
+    //    {
+    //        SinkLilly();
+    //    }
+    //}
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            this.hit = true;
-        }
-    }
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.collider.CompareTag("Player"))
+    //    {
+    //        RiseLilly();
+    //    }
+    //}
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            this.hit = false;
-        }
-    }
+    //private void SinkLilly()
+    //{
+    //    if (hit)
+    //    {
+    //        this.gameObject.transform.DOLocalMoveY(-8, 5);
+    //    }
+    //}
 
-    private void Update()
-    {
-        if (hit)
-        {
-            SinkLilly();
-        }
-        else
-        {
-            RiseLilly();
-        }
-    }
-
-    private void SinkLilly()
-    {
-        if (gameObject.transform.position.y > this.sinkLevel)
-        {
-            gameObject.transform.Translate(new Vector3(0, -this.sinkSpeed, 0) * Time.deltaTime);
-        }
-    }
-
-    private void RiseLilly()
-    {
-        if (this.gameObject.transform.position.y < this.normalYLevel)
-        {
-            this.gameObject.transform.Translate(new Vector3(0, this.riseSpeed, 0) * Time.deltaTime);
-        }
-    }
+    //private void RiseLilly()
+    //{
+    //    this.gameObject.transform.DOLocalMoveY(normalYLevel, 2);
+    //}
 }
